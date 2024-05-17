@@ -7,83 +7,74 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r carga_librerias}
 library(XML)
 library(httr)
 library(dplyr)
-html <- GET("https://www.mediawiki.org/wiki/MediaWiki")
-contenido <- content(html, as = "text")
-parsedHtml <- htmlParse(contenido, asText = TRUE)
-informacionA <- xpathSApply(parsedHtml, "//a", xmlValue)
-links_text <- xpathSApply(parsedHtml, "//a", xmlValue)
-links_url <- xpathSApply(parsedHtml, "//a", xmlGetAttr, 'href')
-datos_matriz <- matrix(c(enlaces = links_text, URL = links_url), nrow = 177, ncol = 2)
-tablaPrin <- as.data.frame(datos_matriz)
-colnames(tablaPrin) <- c("Enlace","URL")
-tablaPrin$Enlace[tablaPrin$Enlace == ""] <- NA
-tablaPrin$Enlace[tablaPrin$Enlace == " "] <- NA
-tablaPrin$Enlace[tablaPrin$Enlace == "\n\t\n\t\t\n"] <- NA
-tablaPrin$Enlace[tablaPrin$Enlace == NULL] <- NA
-tablaPrin
+library(stringr)
+if (!require("htmlTable")) install.packages("htmlTable")
 ```
+
 
 ## Practica 02:
 
 1\. Descargar la página web de la URL indicada, y almacenarlo en un formato de R apto para ser tratado.
 
-RSPT: La web contienen la siguiente informacion: `r 
-html <- GET("https://www.mediawiki.org/wiki/MediaWiki")
-contenido <- content(html, as = "text")
-`
-
-```{r , echo=FALSE}
-library(XML)
-library(httr)
-httr::GET("https://www.mediawiki.org/wiki/MediaWiki")
+```{r descarga_pagina}
 html <- GET("https://www.mediawiki.org/wiki/MediaWiki")
 contenido <- content(html, as = "text")
 parsedHtml <- htmlParse(contenido, asText = TRUE)
-titulo <- xpathSApply(parsedHtml, "//title", xmlValue)
 ```
 
 2\. Analizar el contenido de la web, buscando el título de la página (que en HTML se etiqueta como “title”).
 
-RSPT: El título de la página es: `r 
-html <- GET("https://www.mediawiki.org/wiki/MediaWiki")
-contenido <- content(html, as = "text")
-parsedHtml <- htmlParse(contenido, asText = TRUE)
+
+```{r extrae_titulo}
 titulo <- xpathSApply(parsedHtml, "//title", xmlValue)
-titulo`
+```
+
+RSPT: El título de la página es: `r titulo`.
 
 3\. Analizar el contenido de la web, buscando todos los enlaces (que en HTML se etiquetan como “a”), buscando el texto del enlace, así como la URL.
+
+```{r extrae_enlaces, echo=T}
+links_text   <- xpathSApply(parsedHtml, "//a", xmlValue)
+links_url <- xpathSApply(parsedHtml, "//a", xmlGetAttr, 'href')
+
+tablaPrin <- data.frame("enlaces" = links_text, 
+                        "URL" = links_url,
+                        stringsAsFactors = F)
+
+tablaPrin$Enlace2 <- str_replace_na(tablaPrin$Enlace)
+tablaPrin$Enlace2[tablaPrin$Enlace2 == "NA"] <- NA 
+tablaPrin
+```
 
 RSPT: La infromacion obtenida es: `r 
 View(tablaPrin)`
 
-```{r , echo=FALSE}
-#tablaPrin
-if (!require("htmlTable")) install.packages("htmlTable")
-#tablaPrin$Enlace[tablaPrin$Enlace == ""] <- NA
-#tablaPrin$Enlace[tablaPrin$Enlace == " "] <- NA
-#tablaPrin$Enlace[tablaPrin$Enlace == "\n\t\n\t\t\n"] <- NA
-#tablaPrin$Enlace[tablaPrin$Enlace == NULL] <- NA
-pruebaTabla <- tablaPrin
-mostrarTabla <- htmlTable(pruebaTabla)
-#mostrartabla
-```
-
 4\. Generar una tabla con cada enlace encontrado, indicando el texto que acompaña el enlace, y el número de veces que aparece un enlace con ese mismo objetivo.
-```{r , echo=FALSE}
-#Juan y Luis
 
+```{r , echo=FALSE}
+# convertir relativas en absolutas
+tablaPrin$es_relativo <- grepl("^/|#", tablaPrin$URL, perl = T)
+tablaPrin <- tablaPrin %>% mutate(url_absoluta = ifelse(es_relativo, paste("https://www.mediawiki.org", URL, sep = ""), URL))
+
+tablaPrin <- tablaPrin %>% add_count(url_absoluta)
 ```
 
 5\. Para cada enlace, seguirlo e indicar si está activo (podemos usar el código de status HTTP al hacer una petición a esa URL).
 
 ```{r , echo=FALSE}
-tabla5 <- tablaPrin
-limpiaURL <- grepl("^wiki/", tabla5)
-prueba5 <- ifelse(limpiaURL, paste0("https://www.mediawiki.org/wiki/ ", tabla5), tabla5)
-print(prueba5)
+
+extract_status_code <- function(url) {
+  resp <- HEAD(url)
+  return(resp$status_code)
+}
+
+tablaPrin$status_code <- sapply(tablaPrin$url_absoluta, extract_status_code)
 ```
 
 ## Pregunta 02:
