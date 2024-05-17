@@ -7,11 +7,18 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(XML)
+library(httr)
 ```
 
 ## Practica 02:
 
-1\. Descargar la página web de la URL indicada, y almacenarlo en un formato de R apto para ser tratado. El primer paso para realizar tareas de crawling y scraping es poder descargar los datos de la web. Para esto usaremos la capacidad de R y de sus librerías (httr y XML) para descargar webs y almacenarlas en variables que podamos convertir en un formato fácil de analizar (p.e. de HTML a XML).
+1\. Descargar la página web de la URL indicada, y almacenarlo en un formato de R apto para ser tratado.
+
+RSPT: La web contienen la siguiente informacion: `r 
+html <- GET("https://www.mediawiki.org/wiki/MediaWiki")
+contenido <- content(html, as = "text")
+`
 
 ```{r , echo=FALSE}
 library(XML)
@@ -21,7 +28,65 @@ html <- GET("https://www.mediawiki.org/wiki/MediaWiki")
 contenido <- content(html, as = "text")
 parsedHtml <- htmlParse(contenido, asText = TRUE)
 titulo <- xpathSApply(parsedHtml, "//title", xmlValue)
-titulo
 ```
 
-## 
+2\. Analizar el contenido de la web, buscando el título de la página (que en HTML se etiqueta como “title”).
+
+RSPT: El título de la página es: `r 
+html <- GET("https://www.mediawiki.org/wiki/MediaWiki")
+contenido <- content(html, as = "text")
+parsedHtml <- htmlParse(contenido, asText = TRUE)
+titulo <- xpathSApply(parsedHtml, "//title", xmlValue)
+titulo`
+
+3\. Analizar el contenido de la web, buscando todos los enlaces (que en HTML se etiquetan como “a”), buscando el texto del enlace, así como la URL.
+
+RSPT: La infromacion obtenida es: `r 
+html <- GET("https://www.mediawiki.org/wiki/MediaWiki")
+contenido <- content(html, as = "text")
+parsedHtml <- htmlParse(contenido, asText = TRUE)
+informacionA <- xpathSApply(parsedHtml, "//a", xmlValue)`
+
+```{r , echo=FALSE}
+library(XML)
+library(httr)
+html <- GET("https://www.mediawiki.org/wiki/MediaWiki")
+contenido <- content(html, as = "text")
+parsedHtml <- htmlParse(contenido, asText = TRUE)
+informacionA <- xpathSApply(parsedHtml, "//a", xmlValue)
+links_text <- xpathSApply(parsedHtml, "//a", xmlValue)
+links_url <- xpathSApply(parsedHtml, "//a", xmlGetAttr, 'href')
+datos_matriz <- matrix(c(enlaces = links_text, URL = links_url), nrow = 178, ncol = 2)
+mostrartabla <- as.data.frame(datos_matriz)
+colnames(mostrartabla) <- c("Enlace","URL")
+mostrartabla$Enlace[mostrartabla$Enlace == ""] <- NA
+mostrartabla$Enlace[mostrartabla$Enlace == " "] <- NA
+mostrartabla$Enlace[mostrartabla$Enlace == NULL] <- NA
+#mostrartabla
+```
+
+4\. Generar una tabla con cada enlace encontrado, indicando el texto que acompaña el enlace, y el número de veces que aparece un enlace con ese mismo objetivo.
+```{r , echo=FALSE}
+library(XML)
+library(httr)
+# Prueba de 4 sdasdasdasdasdasdasdasdasdadasdasdasdasdasdasdas
+html <- GET("https://www.mediawiki.org/wiki/MediaWiki")
+contenido <- content(html, as = "text")
+parsedHtml <- htmlParse(contenido, asText = TRUE)
+informacionA <- xpathSApply(parsedHtml, "//a", xmlValue)
+links_text <- xpathSApply(parsedHtml, "//a", xmlValue)
+links_url <- xpathSApply(parsedHtml, "//a", xmlGetAttr, 'href')
+datos_matriz <- matrix(c(enlaces = links_text, URL = links_url), nrow = 178, ncol = 2)
+
+mostrartabla2 <- as.data.frame(datos_matriz)
+colnames(mostrartabla2) <- c("Enlace","URL")
+mostrartabla2$Enlace[mostrartabla2$Enlace == ""] <- NA
+mostrartabla2$Enlace[mostrartabla2$Enlace == " "] <- NA
+mostrartabla2$Enlace[mostrartabla2$Enlace == NULL] <- NA
+mostrartabla2
+links <- mostrartabla2$Enlace
+targets <- mostrartabla2$URL
+links_targets_df <- data.frame(link = links, target = targets)
+link_target_counts <- table(links_targets_df$link, links_targets_df$target)
+print(link_target_counts)
+```
