@@ -1,0 +1,75 @@
+---
+title: "P2"
+author: "Juan Arias"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+##EXTRAER LA INFORMACION DE LA PAGINA WEB PREGUNTAS 1 Y 2
+library(httr)
+library (XML)
+httr::GET("https://www.mediawiki.org/wiki/MediaWiki")
+url <- GET("https://www.mediawiki.org/wiki/MediaWiki")
+contenido <- content(url, as = "text")
+parsedHtml <- htmlParse(contenido, asText = TRUE)
+titulo <- xpathSApply(parsedHtml, "//title", xmlValue)
+titulo
+
+## PREGUNTA 3 - ANALISIS DE DATOS
+#lista <- xpathSApply(parsedHtml, "//a") #filtrar links
+#any_null <- sapply(lista, is.null) # test de valor nulo
+#lista[any_null] <- NA
+
+library(xml2)
+library(rvest)
+library(dplyr)
+title <- xpathSApply(parsedHtml, "//title", xmlValue)
+texts <- xpathSApply(parsedHtml, "//p", xmlValue)
+links_text <- xpathSApply(parsedHtml, "//a", xmlValue)
+links_url <- xpathSApply(parsedHtml, "//a", xmlGetAttr, 'href')
+images_url <- xpathSApply(parsedHtml, "//img", xmlGetAttr, 'src')
+
+table_text <- as.data.frame(links_text)
+link_text <- as.data.frame(links_url)
+images_text <- as.data.frame(images_url)
+tabla <- rbind2(links_text,links_url)
+tabla <- t(tabla)
+#colnames(tabla, do.NULL = FALSE)
+colnames(tabla) <- c("TEXTO","URL")
+View(tabla)
+#Reemplazo de Datosmostrartabla2$Enlace[mostrartabla2$Enlace == ""] <- NA
+mostrartabla2 <- as.data.frame(tabla)
+mostrartabla2$TEXTO[mostrartabla2$TEXTO == ""] <- NA
+mostrartabla2$TEXTO[mostrartabla2$TEXTO == " "] <- NA
+mostrartabla2$TEXTO[mostrartabla2$TEXTO == NULL] <- NA
+mostrartabla2$TEXTO[mostrartabla2$TEXTO == "\n\t\n\t\t\n"] <- NA
+View(mostrartabla2)
+
+# PREGUNTA 4
+tabla3=as.data.frame(mostrartabla2)
+#links <- tabla3$TEXTO
+#targets <- tabla3$URL
+#contar_link=table(links)
+#View(contar_link)
+#Volver a unir Tabla con links
+tabla4 <- dplyr::distinct(tabla3, .keep_all=TRUE)
+View(tabla4)
+#tabla4 <- matrix(c(tabla3,dplyr::n_distinct(tabla3)),nrow = 177, ncol=2)
+
+
+```
+
+## R Markdown
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+
+```
