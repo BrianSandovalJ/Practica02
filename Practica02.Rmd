@@ -9,6 +9,21 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 library(XML)
 library(httr)
+library(dplyr)
+html <- GET("https://www.mediawiki.org/wiki/MediaWiki")
+contenido <- content(html, as = "text")
+parsedHtml <- htmlParse(contenido, asText = TRUE)
+informacionA <- xpathSApply(parsedHtml, "//a", xmlValue)
+links_text <- xpathSApply(parsedHtml, "//a", xmlValue)
+links_url <- xpathSApply(parsedHtml, "//a", xmlGetAttr, 'href')
+datos_matriz <- matrix(c(enlaces = links_text, URL = links_url), nrow = 177, ncol = 2)
+tablaPrin <- as.data.frame(datos_matriz)
+colnames(tablaPrin) <- c("Enlace","URL")
+tablaPrin$Enlace[tablaPrin$Enlace == ""] <- NA
+tablaPrin$Enlace[tablaPrin$Enlace == " "] <- NA
+tablaPrin$Enlace[tablaPrin$Enlace == "\n\t\n\t\t\n"] <- NA
+tablaPrin$Enlace[tablaPrin$Enlace == NULL] <- NA
+tablaPrin
 ```
 
 ## Practica 02:
@@ -42,55 +57,33 @@ titulo`
 3\. Analizar el contenido de la web, buscando todos los enlaces (que en HTML se etiquetan como “a”), buscando el texto del enlace, así como la URL.
 
 RSPT: La infromacion obtenida es: `r 
-html <- GET("https://www.mediawiki.org/wiki/MediaWiki")
-contenido <- content(html, as = "text")
-parsedHtml <- htmlParse(contenido, asText = TRUE)
-informacionA <- xpathSApply(parsedHtml, "//a", xmlValue)`
+View(tablaPrin)`
 
 ```{r , echo=FALSE}
-library(XML)
-library(httr)
-html <- GET("https://www.mediawiki.org/wiki/MediaWiki")
-contenido <- content(html, as = "text")
-parsedHtml <- htmlParse(contenido, asText = TRUE)
-informacionA <- xpathSApply(parsedHtml, "//a", xmlValue)
-links_text <- xpathSApply(parsedHtml, "//a", xmlValue)
-links_url <- xpathSApply(parsedHtml, "//a", xmlGetAttr, 'href')
-datos_matriz <- matrix(c(enlaces = links_text, URL = links_url), nrow = 177, ncol = 2)
-mostrartabla <- as.data.frame(datos_matriz)
-colnames(mostrartabla) <- c("Enlace","URL")
-mostrartabla$Enlace[mostrartabla$Enlace == ""] <- NA
-mostrartabla$Enlace[mostrartabla$Enlace == " "] <- NA
-mostrartabla$Enlace[mostrartabla$Enlace == "\n\t\n\t\t\n"] <- NA
-mostrartabla$Enlace[mostrartabla$Enlace == NULL] <- NA
+#tablaPrin
+if (!require("htmlTable")) install.packages("htmlTable")
+#tablaPrin$Enlace[tablaPrin$Enlace == ""] <- NA
+#tablaPrin$Enlace[tablaPrin$Enlace == " "] <- NA
+#tablaPrin$Enlace[tablaPrin$Enlace == "\n\t\n\t\t\n"] <- NA
+#tablaPrin$Enlace[tablaPrin$Enlace == NULL] <- NA
+pruebaTabla <- tablaPrin
+mostrarTabla <- htmlTable(pruebaTabla)
 #mostrartabla
 ```
 
 4\. Generar una tabla con cada enlace encontrado, indicando el texto que acompaña el enlace, y el número de veces que aparece un enlace con ese mismo objetivo.
 ```{r , echo=FALSE}
-library(XML)
-library(httr)
-# Prueba de 4 sdasdasdasdasdasdasdasdasdadasdasdasdasdasdasdas
-html <- GET("https://www.mediawiki.org/wiki/MediaWiki")
-contenido <- content(html, as = "text")
-parsedHtml <- htmlParse(contenido, asText = TRUE)
-informacionA <- xpathSApply(parsedHtml, "//a", xmlValue)
-links_text <- xpathSApply(parsedHtml, "//a", xmlValue)
-links_url <- xpathSApply(parsedHtml, "//a", xmlGetAttr, 'href')
-datos_matriz <- matrix(c(enlaces = links_text, URL = links_url), nrow = 178, ncol = 2)
+#Juan y Luis
 
-mostrartabla2 <- as.data.frame(datos_matriz)
-colnames(mostrartabla2) <- c("Enlace","URL")
-mostrartabla2$Enlace[mostrartabla2$Enlace == ""] <- NA
-mostrartabla2$Enlace[mostrartabla2$Enlace == " "] <- NA
-mostrartabla2$Enlace[mostrartabla2$Enlace == NULL] <- NA
-mostrartabla2
-links <- mostrartabla2$Enlace
-targets <- mostrartabla2$URL
-links_targets_df <- data.frame(link = links, target = targets)
-link_target_counts <- table(links_targets_df$link, links_targets_df$target)
-print(link_target_counts)
-aa1 <- c(links_targets_df)
-aa2 <- data.frame(aa1)
-aa2
 ```
+
+5\. Para cada enlace, seguirlo e indicar si está activo (podemos usar el código de status HTTP al hacer una petición a esa URL).
+
+```{r , echo=FALSE}
+tabla5 <- tablaPrin
+limpiaURL <- grepl("^wiki/", tabla5)
+prueba5 <- ifelse(limpiaURL, paste0("https://www.mediawiki.org/wiki/ ", tabla5), tabla5)
+print(prueba5)
+```
+
+## Pregunta 02:
