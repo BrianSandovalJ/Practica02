@@ -56,11 +56,12 @@ parsedHtml <- htmlParse(contenido, asText = TRUE)
 informacionA <- xpathSApply(parsedHtml, "//a", xmlValue)
 links_text <- xpathSApply(parsedHtml, "//a", xmlValue)
 links_url <- xpathSApply(parsedHtml, "//a", xmlGetAttr, 'href')
-datos_matriz <- matrix(c(enlaces = links_text, URL = links_url), nrow = 178, ncol = 2)
+datos_matriz <- matrix(c(enlaces = links_text, URL = links_url), nrow = 177, ncol = 2)
 mostrartabla <- as.data.frame(datos_matriz)
 colnames(mostrartabla) <- c("Enlace","URL")
 mostrartabla$Enlace[mostrartabla$Enlace == ""] <- NA
 mostrartabla$Enlace[mostrartabla$Enlace == " "] <- NA
+mostrartabla$Enlace[mostrartabla$Enlace == "\n\t\n\t\t\n"] <- NA
 mostrartabla$Enlace[mostrartabla$Enlace == NULL] <- NA
 #mostrartabla
 ```
@@ -89,4 +90,7 @@ targets <- mostrartabla2$URL
 links_targets_df <- data.frame(link = links, target = targets)
 link_target_counts <- table(links_targets_df$link, links_targets_df$target)
 print(link_target_counts)
+aa1 <- c(links_targets_df)
+aa2 <- data.frame(aa1)
+aa2
 ```
