@@ -40,14 +40,15 @@ RSPT: El título de la página es: `r titulo`.
 3\. Analizar el contenido de la web, buscando todos los enlaces (que en HTML se etiquetan como “a”), buscando el texto del enlace, así como la URL.
 
 ```{r extrae_enlaces, echo=T}
-links_text   <- xpathSApply(parsedHtml, "//a", xmlValue)
+links_text <- xpathSApply(parsedHtml, "//a", xmlValue)
 links_url <- xpathSApply(parsedHtml, "//a", xmlGetAttr, 'href')
 
 tablaPrin <- data.frame("enlaces" = links_text, 
                         "URL" = links_url,
                         stringsAsFactors = F)
 
-tablaPrin$Enlace2 <- str_replace_na(tablaPrin$Enlace)
+tablaPrin$Enlace2 <- str_replace_na(tablaPrin$enlaces)
+
 tablaPrin$Enlace2[tablaPrin$Enlace2 == "NA"] <- NA 
 tablaPrin
 ```
@@ -59,7 +60,8 @@ View(tablaPrin)`
 
 ```{r , echo=FALSE}
 # convertir relativas en absolutas
-tablaPrin$es_relativo <- grepl("^/|#", tablaPrin$URL, perl = T)
+
+tablaPrin$es_relativo <- grepl("^/|#$|#bodyContent", tablaPrin$URL, perl = T)
 tablaPrin <- tablaPrin %>% mutate(url_absoluta = ifelse(es_relativo, paste("https://www.mediawiki.org", URL, sep = ""), URL))
 
 tablaPrin <- tablaPrin %>% add_count(url_absoluta)

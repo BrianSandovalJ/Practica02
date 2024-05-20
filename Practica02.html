@@ -11,7 +11,11 @@
 
 <meta name="author" content="Brian Sandoval" />
 
+<<<<<<< HEAD
 <meta name="date" content="2024-05-17" />
+=======
+<meta name="date" content="2024-05-20" />
+>>>>>>> 5420873 (Fin de todo pregunta 01)
 
 <title>Practica02</title>
 
@@ -352,15 +356,37 @@ display: none;
 
 <h1 class="title toc-ignore">Practica02</h1>
 <h4 class="author">Brian Sandoval</h4>
+<<<<<<< HEAD
 <h4 class="date">2024-05-17</h4>
+=======
+<h4 class="date">2024-05-20</h4>
+>>>>>>> 5420873 (Fin de todo pregunta 01)
 
 </div>
 
 
+<<<<<<< HEAD
+=======
+<pre class="r"><code>library(XML)
+library(httr)
+library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(stringr)
+if (!require(&quot;htmlTable&quot;)) install.packages(&quot;htmlTable&quot;)</code></pre>
+<pre><code>## Loading required package: htmlTable</code></pre>
+>>>>>>> 5420873 (Fin de todo pregunta 01)
 <div id="practica-02" class="section level2">
 <h2>Practica 02:</h2>
 <p>1. Descargar la página web de la URL indicada, y almacenarlo en un
 formato de R apto para ser tratado.</p>
+<<<<<<< HEAD
 <p>RSPT: La web contienen la siguiente informacion:</p>
 <pre><code>## Response [https://www.mediawiki.org/wiki/MediaWiki]
 ##   Date: 2024-05-17 07:35
@@ -387,11 +413,567 @@ la URL.</p>
 <p>RSPT: La infromacion obtenida es:</p>
 <pre><code>## Loading required package: htmlTable</code></pre>
 <pre><code>## Warning: package &#39;htmlTable&#39; was built under R version 4.3.3</code></pre>
+=======
+<pre class="r"><code>html &lt;- GET(&quot;https://www.mediawiki.org/wiki/MediaWiki&quot;)
+contenido &lt;- content(html, as = &quot;text&quot;)
+parsedHtml &lt;- htmlParse(contenido, asText = TRUE)</code></pre>
+<p>2. Analizar el contenido de la web, buscando el título de la página
+(que en HTML se etiqueta como “title”).</p>
+<pre class="r"><code>titulo &lt;- xpathSApply(parsedHtml, &quot;//title&quot;, xmlValue)</code></pre>
+<p>RSPT: El título de la página es: MediaWiki.</p>
+<p>3. Analizar el contenido de la web, buscando todos los enlaces (que
+en HTML se etiquetan como “a”), buscando el texto del enlace, así como
+la URL.</p>
+<pre class="r"><code>links_text   &lt;- xpathSApply(parsedHtml, &quot;//a&quot;, xmlValue)
+links_url &lt;- xpathSApply(parsedHtml, &quot;//a&quot;, xmlGetAttr, &#39;href&#39;)
+
+tablaPrin &lt;- data.frame(&quot;enlaces&quot; = links_text, &quot;URL&quot; = links_url, stringsAsFactors = F)
+
+tablaPrin$Enlace2 &lt;- str_replace_na(tablaPrin$URL)
+tablaPrin$Enlace2[tablaPrin$Enlace2 == &quot;NA&quot;] &lt;- NA 
+tablaPrin</code></pre>
+<pre><code>##                                                                 enlaces
+## 1                                                       Jump to content
+## 2                                                             Main page
+## 3                                                         Get MediaWiki
+## 4                                                        Get extensions
+## 5                                                             Tech blog
+## 6                                                            Contribute
+## 7                                                             User help
+## 8                                                                   FAQ
+## 9                                                      Technical manual
+## 10                                                         Support desk
+## 11                                                        Communication
+## 12                                                     Developer portal
+## 13                                                      Code statistics
+## 14                                                     Community portal
+## 15                                                       Recent changes
+## 16                                                    Translate content
+## 17                                                          Random page
+## 18                                                         Village pump
+## 19                                                              Sandbox
+## 20                                                         \n\t\n\t\t\n
+## 21                                                       \n\nSearch\n\t
+## 22                                                          \n\nEnglish
+## 23                                                       Create account
+## 24                                                               Log in
+## 25                                                       Create account
+## 26                                                               Log in
+## 27                                                           learn more
+## 28                                                        Contributions
+## 29                                                                 Talk
+## 30                                                            Main Page
+## 31                                                           Discussion
+## 32                                                                 Read
+## 33                                                          View source
+## 34                                                         View history
+## 35                                                                 Read
+## 36                                                          View source
+## 37                                                         View history
+## 38                                                      What links here
+## 39                                                      Related changes
+## 40                                                          Upload file
+## 41                                                        Special pages
+## 42                                                       Permanent link
+## 43                                                     Page information
+## 44                                                       Cite this page
+## 45                                                    Get shortened URL
+## 46                                                     Download QR code
+## 47                                                        Wikidata item
+## 48                                                        Create a book
+## 49                                                      Download as PDF
+## 50                                                    Printable version
+## 51                                                    Wikimedia Commons
+## 52                                                 Wikimedia Foundation
+## 53                                                            Meta-Wiki
+## 54                                                   Wikimedia Outreach
+## 55                                              Multilingual Wikisource
+## 56                                                          Wikispecies
+## 57                                                            Wikibooks
+## 58                                                             Wikidata
+## 59                                                        Wikifunctions
+## 60                                                            Wikimania
+## 61                                                             Wikinews
+## 62                                                            Wikipedia
+## 63                                                            Wikiquote
+## 64                                                           Wikisource
+## 65                                                          Wikiversity
+## 66                                                           Wikivoyage
+## 67                                                           Wiktionary
+## 68                                                                     
+## 69                                             Wikimedia Hackathon 2024
+## 70                                                                     
+## 71                                        tens of thousands of websites
+## 72                             thousands of companies and organisations
+## 73                                                         multilingual
+## 74                                                        free and open
+## 75                                                        Find out more
+## 76                                        if MediaWiki is right for you
+## 77                                                             Download
+## 78                                                              install
+## 79                                                            configure
+## 80                                                           extensions
+## 81                                                  errors and symptoms
+## 82                                                                  FAQ
+## 83                                                     hosting services
+## 84                          Get professional development and consulting
+## 85                                                                     
+## 86                                               MediaWiki Stakeholders
+## 87                                                Learn how to navigate
+## 88                                                                     
+## 89                                             Learn how to edit a page
+## 90                                                                     
+## 91        Learn more about reading, editing, and personal customisation
+## 92                                                                     
+## 93                                              developer documentation
+## 94                                           Wikimedia Developer Portal
+## 95                                                         support desk
+## 96                                                         Get involved
+## 97                Report wrong software behaviour or a feature proposal
+## 98                                                                     
+## 99                                             Wikimedia Hackathon 2024
+## 100                                                                    
+## 101               MediaWiki Users and Developers Conference Spring 2024
+## 102                                                                    
+## 103                                                     View livestream
+## 104               MediaWiki 1.39.7, 1.40.3 and 1.41.1 security releases
+## 105                                                    MediaWiki 1.41.0
+## 106                                           MediaWiki 1.35.x versions
+## 107              MediaWiki 1.35.14, 1.39.6 and 1.40.2 security releases
+## 108                                                           More news
+## 109                                                    Other languages:
+## 110                                                                    
+## 111                                                             English
+## 112                                                           Afrikaans
+## 113                                                             العربية
+## 114                                                           asturianu
+## 115                                                          беларуская
+## 116                                            беларуская (тарашкевіца)
+## 117                                                           български
+## 118                                                               বাংলা
+## 119                                                            bosanski
+## 120                                                              català
+## 121                                                               کوردی
+## 122                                                             čeština
+## 123                                                               dansk
+## 124                                                             Deutsch
+## 125                                                             español
+## 126                                                               فارسی
+## 127                                                               suomi
+## 128                                                            français
+## 129                                                              galego
+## 130                                                              ગુજરાતી
+## 131                                                               עברית
+## 132                                                               हिन्दी
+## 133                                                            hrvatski
+## 134                                                              magyar
+## 135                                                             հայերեն
+## 136                                                    Bahasa Indonesia
+## 137                                                            italiano
+## 138                                                              日本語
+## 139                                                                Jawa
+## 140                                                             қазақша
+## 141                                                              한국어
+## 142                                                       Bahasa Melayu
+## 143                                                            Mirandés
+## 144                                                          Nederlands
+## 145                                                              polski
+## 146                                                           português
+## 147                                                 português do Brasil
+## 148                                                              română
+## 149                                                             русский
+## 150                                                               sardu
+## 151                                                                සිංහල
+## 152                                                          slovenčina
+## 153                                                         slovenščina
+## 154                                                          Soomaaliga
+## 155                                                               shqip
+## 156                                                     српски / srpski
+## 157                                                             svenska
+## 158                                                                 ไทย
+## 159                                                              Türkçe
+## 160                                                          українська
+## 161                                                          Tiếng Việt
+## 162                                                                粵語
+## 163                                                                中文
+## 164 https://www.mediawiki.org/w/index.php?title=MediaWiki&amp;oldid=6287429
+## 165                                                     Languages pages
+## 166                     Creative Commons Attribution-ShareAlike License
+## 167                                                        Terms of Use
+## 168                                                      Privacy policy
+## 169                                                 About mediawiki.org
+## 170                                                         Disclaimers
+## 171                                                     Code of Conduct
+## 172                                                          Developers
+## 173                                                          Statistics
+## 174                                                    Cookie statement
+## 175                                                         Mobile view
+## 176                                                                    
+## 177                                                                    
+##                                                                                                                              URL
+## 1                                                                                                                   #bodyContent
+## 2                                                                                                                /wiki/MediaWiki
+## 3                                                                                                                 /wiki/Download
+## 4                                                                                   /wiki/Special:MyLanguage/Category:Extensions
+## 5                                                                                                https://techblog.wikimedia.org/
+## 6                                                                                     /wiki/Special:MyLanguage/How_to_contribute
+## 7                                                                                         /wiki/Special:MyLanguage/Help:Contents
+## 8                                                                                            /wiki/Special:MyLanguage/Manual:FAQ
+## 9                                                                                       /wiki/Special:MyLanguage/Manual:Contents
+## 10                                                                                                    /wiki/Project:Support_desk
+## 11                                                                                        /wiki/Special:MyLanguage/Communication
+## 12                                                                                              https://developer.wikimedia.org/
+## 13                                                                                                  /wiki/Development_statistics
+## 14                                                                                                            /wiki/Project:Help
+## 15                                                                                                   /wiki/Special:RecentChanges
+## 16                                                                                                   /wiki/Special:LanguageStats
+## 17                                                                                                          /wiki/Special:Random
+## 18                                                                                                    /wiki/Project:Village_Pump
+## 19                                                                                                         /wiki/Project:Sandbox
+## 20                                                                                                               /wiki/MediaWiki
+## 21                                                                                                          /wiki/Special:Search
+## 22                                                                                                                             #
+## 23                                                                   /w/index.php?title=Special:CreateAccount&amp;returnto=MediaWiki
+## 24                                                                       /w/index.php?title=Special:UserLogin&amp;returnto=MediaWiki
+## 25                                                                   /w/index.php?title=Special:CreateAccount&amp;returnto=MediaWiki
+## 26                                                                       /w/index.php?title=Special:UserLogin&amp;returnto=MediaWiki
+## 27                                                                                                       /wiki/Help:Introduction
+## 28                                                                                                 /wiki/Special:MyContributions
+## 29                                                                                                          /wiki/Special:MyTalk
+## 30                                                                                                               /wiki/MediaWiki
+## 31                                                                                                          /wiki/Talk:MediaWiki
+## 32                                                                                                               /wiki/MediaWiki
+## 33                                                                                      /w/index.php?title=MediaWiki&amp;action=edit
+## 34                                                                                   /w/index.php?title=MediaWiki&amp;action=history
+## 35                                                                                                               /wiki/MediaWiki
+## 36                                                                                      /w/index.php?title=MediaWiki&amp;action=edit
+## 37                                                                                   /w/index.php?title=MediaWiki&amp;action=history
+## 38                                                                                         /wiki/Special:WhatLinksHere/MediaWiki
+## 39                                                                                   /wiki/Special:RecentChangesLinked/MediaWiki
+## 40                                                                             //commons.wikimedia.org/wiki/Special:UploadWizard
+## 41                                                                                                    /wiki/Special:SpecialPages
+## 42                                                                                    /w/index.php?title=MediaWiki&amp;oldid=6287429
+## 43                                                                                      /w/index.php?title=MediaWiki&amp;action=info
+## 44                                  /w/index.php?title=Special:CiteThisPage&amp;page=MediaWiki&amp;id=6287429&amp;wpFormIdentifier=titleform
+## 45                                /w/index.php?title=Special:UrlShortener&amp;url=https%3A%2F%2Fwww.mediawiki.org%2Fwiki%2FMediaWiki
+## 46                                      /w/index.php?title=Special:QrCode&amp;url=https%3A%2F%2Fwww.mediawiki.org%2Fwiki%2FMediaWiki
+## 47                                                                        https://www.wikidata.org/wiki/Special:EntityPage/Q5296
+## 48                                                        /w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=MediaWiki
+## 49                                           /w/index.php?title=Special:DownloadAsPdf&amp;page=MediaWiki&amp;action=show-download-screen
+## 50                                                                                    /w/index.php?title=MediaWiki&amp;printable=yes
+## 51                                                                                  https://commons.wikimedia.org/wiki/Main_Page
+## 52                                                                                    https://foundation.wikimedia.org/wiki/Home
+## 53                                                                                     https://meta.wikimedia.org/wiki/Main_Page
+## 54                                                                                 https://outreach.wikimedia.org/wiki/Main_Page
+## 55                                                                                         https://wikisource.org/wiki/Main_Page
+## 56                                                                                  https://species.wikimedia.org/wiki/Main_Page
+## 57                                                                                       https://en.wikibooks.org/wiki/Main_Page
+## 58                                                                              https://www.wikidata.org/wiki/Wikidata:Main_Page
+## 59                                                                    https://www.wikifunctions.org/wiki/Wikifunctions:Main_Page
+## 60                                                                                https://wikimania.wikimedia.org/wiki/Wikimania
+## 61                                                                                        https://en.wikinews.org/wiki/Main_Page
+## 62                                                                                       https://en.wikipedia.org/wiki/Main_Page
+## 63                                                                                       https://en.wikiquote.org/wiki/Main_Page
+## 64                                                                                      https://en.wikisource.org/wiki/Main_Page
+## 65                                                                         https://en.wikiversity.org/wiki/Wikiversity:Main_Page
+## 66                                                                                      https://en.wikivoyage.org/wiki/Main_Page
+## 67                                                                           https://en.wiktionary.org/wiki/Wiktionary:Main_Page
+## 68                                                                /wiki/File:Wikimedia_Hackathon_2024_-_Group_photo,_360_cam.jpg
+## 69                                                                             /wiki/Special:MyLanguage/Wikimedia_Hackathon_2024
+## 70                                                                                                /wiki/Wikimedia_Hackathon_2024
+## 71                                                                                /wiki/Special:MyLanguage/Sites_using_MediaWiki
+## 72                                                                               /wiki/Special:MyLanguage/MediaWiki_testimonials
+## 73                                                                                         /wiki/Special:MyLanguage/Localisation
+## 74                                                                                           https://en.wikipedia.org/wiki/FLOSS
+## 75                                                                          /wiki/Special:MyLanguage/Manual:What_is_MediaWiki%3F
+## 76                                           /wiki/Special:MyLanguage/Manual:Deciding_whether_to_use_a_wiki_as_your_website_type
+## 77                                                                                             /wiki/Special:MyLanguage/Download
+## 78                                                                          /wiki/Special:MyLanguage/Manual:Installing_MediaWiki
+## 79                                                                         /wiki/Special:MyLanguage/Manual:System_administration
+## 80                                                                                    /wiki/Special:MyLanguage/Manual:Extensions
+## 81                                                                    /wiki/Special:MyLanguage/Manual:Common_errors_and_symptoms
+## 82                                                                                           /wiki/Special:MyLanguage/Manual:FAQ
+## 83                                                                                     /wiki/Special:MyLanguage/Hosting_services
+## 84                                                              /wiki/Special:MyLanguage/Professional_development_and_consulting
+## 85                                                                                 /wiki/Professional_development_and_consulting
+## 86                                                                      /wiki/Special:MyLanguage/MediaWiki_Stakeholders%27_Group
+## 87                                                                                      /wiki/Special:MyLanguage/Help:Navigation
+## 88                                                                                                         /wiki/Help:Navigation
+## 89                                                                                   /wiki/Special:MyLanguage/Help:Editing_pages
+## 90                                                                                                      /wiki/Help:Editing_pages
+## 91                                                                                        /wiki/Special:MyLanguage/Help:Contents
+## 92                                                                                                           /wiki/Help:Contents
+## 93                                                                                        /wiki/Special:MyLanguage/Developer_hub
+## 94                                                                                               https://developer.wikimedia.org
+## 95                                                                                                    /wiki/Project:Support_desk
+## 96                                                                                    /wiki/Special:MyLanguage/How_to_contribute
+## 97                                                                                  /wiki/Special:MyLanguage/How_to_report_a_bug
+## 98                                                                                                     /wiki/How_to_report_a_bug
+## 99                                                                             /wiki/Special:MyLanguage/Wikimedia_Hackathon_2024
+## 100                                                                                               /wiki/Wikimedia_Hackathon_2024
+## 101                                               /wiki/Special:MyLanguage/MediaWiki_Users_and_Developers_Conference_Spring_2024
+## 102                                                                  /wiki/MediaWiki_Users_and_Developers_Conference_Spring_2024
+## 103                                                       /wiki/MediaWiki_Users_and_Developers_Conference_2024#Remote_attendance
+## 104 https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/message/V3WXEPXV2DU6WTVEKK4XHW4QXD5OFKD7/
+## 105  https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/thread/OMDFHJ2SKKJH775RW4UTC754OY4TP7UU/
+## 106         https://lists.wikimedia.org/hyperkitty/list/mediawiki-l@lists.wikimedia.org/thread/72B3GNSDFUJEM23W54735OW34IHCZL6F/
+## 107 https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/message/TDBUBCCOQJUT4SCHJNPHKQNPBUUETY52/
+## 108                                                                       https://www.mediawiki.org/wiki/Special:MyLanguage/News
+## 109                                                                             /wiki/Special:MyLanguage/Project:Language_policy
+## 110                                                                                                /wiki/Project:Language_policy
+## 111                                                                                                     /wiki/Template:Main_page
+## 112                                                                         https://www.mediawiki.org/wiki/Template:Main_page/af
+## 113                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ar
+## 114                                                                        https://www.mediawiki.org/wiki/Template:Main_page/ast
+## 115                                                                         https://www.mediawiki.org/wiki/Template:Main_page/be
+## 116                                                                  https://www.mediawiki.org/wiki/Template:Main_page/be-tarask
+## 117                                                                         https://www.mediawiki.org/wiki/Template:Main_page/bg
+## 118                                                                         https://www.mediawiki.org/wiki/Template:Main_page/bn
+## 119                                                                         https://www.mediawiki.org/wiki/Template:Main_page/bs
+## 120                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ca
+## 121                                                                        https://www.mediawiki.org/wiki/Template:Main_page/ckb
+## 122                                                                         https://www.mediawiki.org/wiki/Template:Main_page/cs
+## 123                                                                         https://www.mediawiki.org/wiki/Template:Main_page/da
+## 124                                                                         https://www.mediawiki.org/wiki/Template:Main_page/de
+## 125                                                                         https://www.mediawiki.org/wiki/Template:Main_page/es
+## 126                                                                         https://www.mediawiki.org/wiki/Template:Main_page/fa
+## 127                                                                         https://www.mediawiki.org/wiki/Template:Main_page/fi
+## 128                                                                         https://www.mediawiki.org/wiki/Template:Main_page/fr
+## 129                                                                         https://www.mediawiki.org/wiki/Template:Main_page/gl
+## 130                                                                         https://www.mediawiki.org/wiki/Template:Main_page/gu
+## 131                                                                         https://www.mediawiki.org/wiki/Template:Main_page/he
+## 132                                                                         https://www.mediawiki.org/wiki/Template:Main_page/hi
+## 133                                                                         https://www.mediawiki.org/wiki/Template:Main_page/hr
+## 134                                                                         https://www.mediawiki.org/wiki/Template:Main_page/hu
+## 135                                                                         https://www.mediawiki.org/wiki/Template:Main_page/hy
+## 136                                                                         https://www.mediawiki.org/wiki/Template:Main_page/id
+## 137                                                                         https://www.mediawiki.org/wiki/Template:Main_page/it
+## 138                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ja
+## 139                                                                         https://www.mediawiki.org/wiki/Template:Main_page/jv
+## 140                                                                         https://www.mediawiki.org/wiki/Template:Main_page/kk
+## 141                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ko
+## 142                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ms
+## 143                                                                        https://www.mediawiki.org/wiki/Template:Main_page/mwl
+## 144                                                                         https://www.mediawiki.org/wiki/Template:Main_page/nl
+## 145                                                                         https://www.mediawiki.org/wiki/Template:Main_page/pl
+## 146                                                                         https://www.mediawiki.org/wiki/Template:Main_page/pt
+## 147                                                                      https://www.mediawiki.org/wiki/Template:Main_page/pt-br
+## 148                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ro
+## 149                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ru
+## 150                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sc
+## 151                                                                         https://www.mediawiki.org/wiki/Template:Main_page/si
+## 152                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sk
+## 153                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sl
+## 154                                                                         https://www.mediawiki.org/wiki/Template:Main_page/so
+## 155                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sq
+## 156                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sr
+## 157                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sv
+## 158                                                                         https://www.mediawiki.org/wiki/Template:Main_page/th
+## 159                                                                         https://www.mediawiki.org/wiki/Template:Main_page/tr
+## 160                                                                         https://www.mediawiki.org/wiki/Template:Main_page/uk
+## 161                                                                         https://www.mediawiki.org/wiki/Template:Main_page/vi
+## 162                                                                        https://www.mediawiki.org/wiki/Template:Main_page/yue
+## 163                                                                         https://www.mediawiki.org/wiki/Template:Main_page/zh
+## 164                                                          https://www.mediawiki.org/w/index.php?title=MediaWiki&amp;oldid=6287429
+## 165                                                                                               /wiki/Category:Languages_pages
+## 166                                                                       https://creativecommons.org/licenses/by-sa/4.0/deed.en
+## 167                                                 https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Terms_of_Use
+## 168                                               https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy
+## 169                                                                                                          /wiki/Project:About
+## 170                                                                                             /wiki/Project:General_disclaimer
+## 171                                                            https://www.mediawiki.org/wiki/Special:MyLanguage/Code_of_Conduct
+## 172                                                                                              https://developer.wikimedia.org
+## 173                                                                              https://stats.wikimedia.org/#/www.mediawiki.org
+## 174                                             https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Cookie_statement
+## 175                                                //m.mediawiki.org/w/index.php?title=MediaWiki&amp;mobileaction=toggle_view_mobile
+## 176                                                                                             https://wikimediafoundation.org/
+## 177                                                                                                   https://www.mediawiki.org/
+##                                                                                                                          Enlace2
+## 1                                                                                                                   #bodyContent
+## 2                                                                                                                /wiki/MediaWiki
+## 3                                                                                                                 /wiki/Download
+## 4                                                                                   /wiki/Special:MyLanguage/Category:Extensions
+## 5                                                                                                https://techblog.wikimedia.org/
+## 6                                                                                     /wiki/Special:MyLanguage/How_to_contribute
+## 7                                                                                         /wiki/Special:MyLanguage/Help:Contents
+## 8                                                                                            /wiki/Special:MyLanguage/Manual:FAQ
+## 9                                                                                       /wiki/Special:MyLanguage/Manual:Contents
+## 10                                                                                                    /wiki/Project:Support_desk
+## 11                                                                                        /wiki/Special:MyLanguage/Communication
+## 12                                                                                              https://developer.wikimedia.org/
+## 13                                                                                                  /wiki/Development_statistics
+## 14                                                                                                            /wiki/Project:Help
+## 15                                                                                                   /wiki/Special:RecentChanges
+## 16                                                                                                   /wiki/Special:LanguageStats
+## 17                                                                                                          /wiki/Special:Random
+## 18                                                                                                    /wiki/Project:Village_Pump
+## 19                                                                                                         /wiki/Project:Sandbox
+## 20                                                                                                               /wiki/MediaWiki
+## 21                                                                                                          /wiki/Special:Search
+## 22                                                                                                                             #
+## 23                                                                   /w/index.php?title=Special:CreateAccount&amp;returnto=MediaWiki
+## 24                                                                       /w/index.php?title=Special:UserLogin&amp;returnto=MediaWiki
+## 25                                                                   /w/index.php?title=Special:CreateAccount&amp;returnto=MediaWiki
+## 26                                                                       /w/index.php?title=Special:UserLogin&amp;returnto=MediaWiki
+## 27                                                                                                       /wiki/Help:Introduction
+## 28                                                                                                 /wiki/Special:MyContributions
+## 29                                                                                                          /wiki/Special:MyTalk
+## 30                                                                                                               /wiki/MediaWiki
+## 31                                                                                                          /wiki/Talk:MediaWiki
+## 32                                                                                                               /wiki/MediaWiki
+## 33                                                                                      /w/index.php?title=MediaWiki&amp;action=edit
+## 34                                                                                   /w/index.php?title=MediaWiki&amp;action=history
+## 35                                                                                                               /wiki/MediaWiki
+## 36                                                                                      /w/index.php?title=MediaWiki&amp;action=edit
+## 37                                                                                   /w/index.php?title=MediaWiki&amp;action=history
+## 38                                                                                         /wiki/Special:WhatLinksHere/MediaWiki
+## 39                                                                                   /wiki/Special:RecentChangesLinked/MediaWiki
+## 40                                                                             //commons.wikimedia.org/wiki/Special:UploadWizard
+## 41                                                                                                    /wiki/Special:SpecialPages
+## 42                                                                                    /w/index.php?title=MediaWiki&amp;oldid=6287429
+## 43                                                                                      /w/index.php?title=MediaWiki&amp;action=info
+## 44                                  /w/index.php?title=Special:CiteThisPage&amp;page=MediaWiki&amp;id=6287429&amp;wpFormIdentifier=titleform
+## 45                                /w/index.php?title=Special:UrlShortener&amp;url=https%3A%2F%2Fwww.mediawiki.org%2Fwiki%2FMediaWiki
+## 46                                      /w/index.php?title=Special:QrCode&amp;url=https%3A%2F%2Fwww.mediawiki.org%2Fwiki%2FMediaWiki
+## 47                                                                        https://www.wikidata.org/wiki/Special:EntityPage/Q5296
+## 48                                                        /w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=MediaWiki
+## 49                                           /w/index.php?title=Special:DownloadAsPdf&amp;page=MediaWiki&amp;action=show-download-screen
+## 50                                                                                    /w/index.php?title=MediaWiki&amp;printable=yes
+## 51                                                                                  https://commons.wikimedia.org/wiki/Main_Page
+## 52                                                                                    https://foundation.wikimedia.org/wiki/Home
+## 53                                                                                     https://meta.wikimedia.org/wiki/Main_Page
+## 54                                                                                 https://outreach.wikimedia.org/wiki/Main_Page
+## 55                                                                                         https://wikisource.org/wiki/Main_Page
+## 56                                                                                  https://species.wikimedia.org/wiki/Main_Page
+## 57                                                                                       https://en.wikibooks.org/wiki/Main_Page
+## 58                                                                              https://www.wikidata.org/wiki/Wikidata:Main_Page
+## 59                                                                    https://www.wikifunctions.org/wiki/Wikifunctions:Main_Page
+## 60                                                                                https://wikimania.wikimedia.org/wiki/Wikimania
+## 61                                                                                        https://en.wikinews.org/wiki/Main_Page
+## 62                                                                                       https://en.wikipedia.org/wiki/Main_Page
+## 63                                                                                       https://en.wikiquote.org/wiki/Main_Page
+## 64                                                                                      https://en.wikisource.org/wiki/Main_Page
+## 65                                                                         https://en.wikiversity.org/wiki/Wikiversity:Main_Page
+## 66                                                                                      https://en.wikivoyage.org/wiki/Main_Page
+## 67                                                                           https://en.wiktionary.org/wiki/Wiktionary:Main_Page
+## 68                                                                /wiki/File:Wikimedia_Hackathon_2024_-_Group_photo,_360_cam.jpg
+## 69                                                                             /wiki/Special:MyLanguage/Wikimedia_Hackathon_2024
+## 70                                                                                                /wiki/Wikimedia_Hackathon_2024
+## 71                                                                                /wiki/Special:MyLanguage/Sites_using_MediaWiki
+## 72                                                                               /wiki/Special:MyLanguage/MediaWiki_testimonials
+## 73                                                                                         /wiki/Special:MyLanguage/Localisation
+## 74                                                                                           https://en.wikipedia.org/wiki/FLOSS
+## 75                                                                          /wiki/Special:MyLanguage/Manual:What_is_MediaWiki%3F
+## 76                                           /wiki/Special:MyLanguage/Manual:Deciding_whether_to_use_a_wiki_as_your_website_type
+## 77                                                                                             /wiki/Special:MyLanguage/Download
+## 78                                                                          /wiki/Special:MyLanguage/Manual:Installing_MediaWiki
+## 79                                                                         /wiki/Special:MyLanguage/Manual:System_administration
+## 80                                                                                    /wiki/Special:MyLanguage/Manual:Extensions
+## 81                                                                    /wiki/Special:MyLanguage/Manual:Common_errors_and_symptoms
+## 82                                                                                           /wiki/Special:MyLanguage/Manual:FAQ
+## 83                                                                                     /wiki/Special:MyLanguage/Hosting_services
+## 84                                                              /wiki/Special:MyLanguage/Professional_development_and_consulting
+## 85                                                                                 /wiki/Professional_development_and_consulting
+## 86                                                                      /wiki/Special:MyLanguage/MediaWiki_Stakeholders%27_Group
+## 87                                                                                      /wiki/Special:MyLanguage/Help:Navigation
+## 88                                                                                                         /wiki/Help:Navigation
+## 89                                                                                   /wiki/Special:MyLanguage/Help:Editing_pages
+## 90                                                                                                      /wiki/Help:Editing_pages
+## 91                                                                                        /wiki/Special:MyLanguage/Help:Contents
+## 92                                                                                                           /wiki/Help:Contents
+## 93                                                                                        /wiki/Special:MyLanguage/Developer_hub
+## 94                                                                                               https://developer.wikimedia.org
+## 95                                                                                                    /wiki/Project:Support_desk
+## 96                                                                                    /wiki/Special:MyLanguage/How_to_contribute
+## 97                                                                                  /wiki/Special:MyLanguage/How_to_report_a_bug
+## 98                                                                                                     /wiki/How_to_report_a_bug
+## 99                                                                             /wiki/Special:MyLanguage/Wikimedia_Hackathon_2024
+## 100                                                                                               /wiki/Wikimedia_Hackathon_2024
+## 101                                               /wiki/Special:MyLanguage/MediaWiki_Users_and_Developers_Conference_Spring_2024
+## 102                                                                  /wiki/MediaWiki_Users_and_Developers_Conference_Spring_2024
+## 103                                                       /wiki/MediaWiki_Users_and_Developers_Conference_2024#Remote_attendance
+## 104 https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/message/V3WXEPXV2DU6WTVEKK4XHW4QXD5OFKD7/
+## 105  https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/thread/OMDFHJ2SKKJH775RW4UTC754OY4TP7UU/
+## 106         https://lists.wikimedia.org/hyperkitty/list/mediawiki-l@lists.wikimedia.org/thread/72B3GNSDFUJEM23W54735OW34IHCZL6F/
+## 107 https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/message/TDBUBCCOQJUT4SCHJNPHKQNPBUUETY52/
+## 108                                                                       https://www.mediawiki.org/wiki/Special:MyLanguage/News
+## 109                                                                             /wiki/Special:MyLanguage/Project:Language_policy
+## 110                                                                                                /wiki/Project:Language_policy
+## 111                                                                                                     /wiki/Template:Main_page
+## 112                                                                         https://www.mediawiki.org/wiki/Template:Main_page/af
+## 113                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ar
+## 114                                                                        https://www.mediawiki.org/wiki/Template:Main_page/ast
+## 115                                                                         https://www.mediawiki.org/wiki/Template:Main_page/be
+## 116                                                                  https://www.mediawiki.org/wiki/Template:Main_page/be-tarask
+## 117                                                                         https://www.mediawiki.org/wiki/Template:Main_page/bg
+## 118                                                                         https://www.mediawiki.org/wiki/Template:Main_page/bn
+## 119                                                                         https://www.mediawiki.org/wiki/Template:Main_page/bs
+## 120                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ca
+## 121                                                                        https://www.mediawiki.org/wiki/Template:Main_page/ckb
+## 122                                                                         https://www.mediawiki.org/wiki/Template:Main_page/cs
+## 123                                                                         https://www.mediawiki.org/wiki/Template:Main_page/da
+## 124                                                                         https://www.mediawiki.org/wiki/Template:Main_page/de
+## 125                                                                         https://www.mediawiki.org/wiki/Template:Main_page/es
+## 126                                                                         https://www.mediawiki.org/wiki/Template:Main_page/fa
+## 127                                                                         https://www.mediawiki.org/wiki/Template:Main_page/fi
+## 128                                                                         https://www.mediawiki.org/wiki/Template:Main_page/fr
+## 129                                                                         https://www.mediawiki.org/wiki/Template:Main_page/gl
+## 130                                                                         https://www.mediawiki.org/wiki/Template:Main_page/gu
+## 131                                                                         https://www.mediawiki.org/wiki/Template:Main_page/he
+## 132                                                                         https://www.mediawiki.org/wiki/Template:Main_page/hi
+## 133                                                                         https://www.mediawiki.org/wiki/Template:Main_page/hr
+## 134                                                                         https://www.mediawiki.org/wiki/Template:Main_page/hu
+## 135                                                                         https://www.mediawiki.org/wiki/Template:Main_page/hy
+## 136                                                                         https://www.mediawiki.org/wiki/Template:Main_page/id
+## 137                                                                         https://www.mediawiki.org/wiki/Template:Main_page/it
+## 138                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ja
+## 139                                                                         https://www.mediawiki.org/wiki/Template:Main_page/jv
+## 140                                                                         https://www.mediawiki.org/wiki/Template:Main_page/kk
+## 141                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ko
+## 142                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ms
+## 143                                                                        https://www.mediawiki.org/wiki/Template:Main_page/mwl
+## 144                                                                         https://www.mediawiki.org/wiki/Template:Main_page/nl
+## 145                                                                         https://www.mediawiki.org/wiki/Template:Main_page/pl
+## 146                                                                         https://www.mediawiki.org/wiki/Template:Main_page/pt
+## 147                                                                      https://www.mediawiki.org/wiki/Template:Main_page/pt-br
+## 148                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ro
+## 149                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ru
+## 150                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sc
+## 151                                                                         https://www.mediawiki.org/wiki/Template:Main_page/si
+## 152                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sk
+## 153                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sl
+## 154                                                                         https://www.mediawiki.org/wiki/Template:Main_page/so
+## 155                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sq
+## 156                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sr
+## 157                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sv
+## 158                                                                         https://www.mediawiki.org/wiki/Template:Main_page/th
+## 159                                                                         https://www.mediawiki.org/wiki/Template:Main_page/tr
+## 160                                                                         https://www.mediawiki.org/wiki/Template:Main_page/uk
+## 161                                                                         https://www.mediawiki.org/wiki/Template:Main_page/vi
+## 162                                                                        https://www.mediawiki.org/wiki/Template:Main_page/yue
+## 163                                                                         https://www.mediawiki.org/wiki/Template:Main_page/zh
+## 164                                                          https://www.mediawiki.org/w/index.php?title=MediaWiki&amp;oldid=6287429
+## 165                                                                                               /wiki/Category:Languages_pages
+## 166                                                                       https://creativecommons.org/licenses/by-sa/4.0/deed.en
+## 167                                                 https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Terms_of_Use
+## 168                                               https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy
+## 169                                                                                                          /wiki/Project:About
+## 170                                                                                             /wiki/Project:General_disclaimer
+## 171                                                            https://www.mediawiki.org/wiki/Special:MyLanguage/Code_of_Conduct
+## 172                                                                                              https://developer.wikimedia.org
+## 173                                                                              https://stats.wikimedia.org/#/www.mediawiki.org
+## 174                                             https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Cookie_statement
+## 175                                                //m.mediawiki.org/w/index.php?title=MediaWiki&amp;mobileaction=toggle_view_mobile
+## 176                                                                                             https://wikimediafoundation.org/
+## 177                                                                                                   https://www.mediawiki.org/</code></pre>
+<p>RSPT: La infromacion obtenida es:</p>
+>>>>>>> 5420873 (Fin de todo pregunta 01)
 <p>4. Generar una tabla con cada enlace encontrado, indicando el texto
 que acompaña el enlace, y el número de veces que aparece un enlace con
 ese mismo objetivo.</p>
 <p>5. Para cada enlace, seguirlo e indicar si está activo (podemos usar
 el código de status HTTP al hacer una petición a esa URL).</p>
+<<<<<<< HEAD
 <pre><code>## [[1]]
 ##   [1] &quot;Jump to content&quot;                                                    
 ##   [2] &quot;Main page&quot;                                                          
@@ -772,6 +1354,8 @@ el código de status HTTP al hacer una petición a esa URL).</p>
 ##   &quot;title&quot;: &quot;ea molestias quasi exercitationem repellat qui ipsa sit aut&quot;,
 ##   &quot;body&quot;: &quot;et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut&quot;
 ## }</code></pre>
+=======
+>>>>>>> 5420873 (Fin de todo pregunta 01)
 </div>
 <div id="pregunta-02" class="section level2">
 <h2>Pregunta 02:</h2>
