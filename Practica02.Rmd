@@ -50,7 +50,7 @@ tablaPrin <- data.frame("enlaces" = links_text,
 tablaPrin$Enlace2 <- str_replace_na(tablaPrin$enlaces)
 
 tablaPrin$Enlace2[tablaPrin$Enlace2 == "NA"] <- NA 
-tablaPrin
+htmlTable(tablaPrin)
 ```
 
 RSPT: La infromacion obtenida es: `r 

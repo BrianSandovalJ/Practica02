@@ -431,541 +431,2491 @@ tablaPrin &lt;- data.frame(&quot;enlaces&quot; = links_text, &quot;URL&quot; = l
 
 tablaPrin$Enlace2 &lt;- str_replace_na(tablaPrin$URL)
 tablaPrin$Enlace2[tablaPrin$Enlace2 == &quot;NA&quot;] &lt;- NA 
-tablaPrin</code></pre>
-<pre><code>##                                                                 enlaces
-## 1                                                       Jump to content
-## 2                                                             Main page
-## 3                                                         Get MediaWiki
-## 4                                                        Get extensions
-## 5                                                             Tech blog
-## 6                                                            Contribute
-## 7                                                             User help
-## 8                                                                   FAQ
-## 9                                                      Technical manual
-## 10                                                         Support desk
-## 11                                                        Communication
-## 12                                                     Developer portal
-## 13                                                      Code statistics
-## 14                                                     Community portal
-## 15                                                       Recent changes
-## 16                                                    Translate content
-## 17                                                          Random page
-## 18                                                         Village pump
-## 19                                                              Sandbox
-## 20                                                         \n\t\n\t\t\n
-## 21                                                       \n\nSearch\n\t
-## 22                                                          \n\nEnglish
-## 23                                                       Create account
-## 24                                                               Log in
-## 25                                                       Create account
-## 26                                                               Log in
-## 27                                                           learn more
-## 28                                                        Contributions
-## 29                                                                 Talk
-## 30                                                            Main Page
-## 31                                                           Discussion
-## 32                                                                 Read
-## 33                                                          View source
-## 34                                                         View history
-## 35                                                                 Read
-## 36                                                          View source
-## 37                                                         View history
-## 38                                                      What links here
-## 39                                                      Related changes
-## 40                                                          Upload file
-## 41                                                        Special pages
-## 42                                                       Permanent link
-## 43                                                     Page information
-## 44                                                       Cite this page
-## 45                                                    Get shortened URL
-## 46                                                     Download QR code
-## 47                                                        Wikidata item
-## 48                                                        Create a book
-## 49                                                      Download as PDF
-## 50                                                    Printable version
-## 51                                                    Wikimedia Commons
-## 52                                                 Wikimedia Foundation
-## 53                                                            Meta-Wiki
-## 54                                                   Wikimedia Outreach
-## 55                                              Multilingual Wikisource
-## 56                                                          Wikispecies
-## 57                                                            Wikibooks
-## 58                                                             Wikidata
-## 59                                                        Wikifunctions
-## 60                                                            Wikimania
-## 61                                                             Wikinews
-## 62                                                            Wikipedia
-## 63                                                            Wikiquote
-## 64                                                           Wikisource
-## 65                                                          Wikiversity
-## 66                                                           Wikivoyage
-## 67                                                           Wiktionary
-## 68                                                                     
-## 69                                             Wikimedia Hackathon 2024
-## 70                                                                     
-## 71                                        tens of thousands of websites
-## 72                             thousands of companies and organisations
-## 73                                                         multilingual
-## 74                                                        free and open
-## 75                                                        Find out more
-## 76                                        if MediaWiki is right for you
-## 77                                                             Download
-## 78                                                              install
-## 79                                                            configure
-## 80                                                           extensions
-## 81                                                  errors and symptoms
-## 82                                                                  FAQ
-## 83                                                     hosting services
-## 84                          Get professional development and consulting
-## 85                                                                     
-## 86                                               MediaWiki Stakeholders
-## 87                                                Learn how to navigate
-## 88                                                                     
-## 89                                             Learn how to edit a page
-## 90                                                                     
-## 91        Learn more about reading, editing, and personal customisation
-## 92                                                                     
-## 93                                              developer documentation
-## 94                                           Wikimedia Developer Portal
-## 95                                                         support desk
-## 96                                                         Get involved
-## 97                Report wrong software behaviour or a feature proposal
-## 98                                                                     
-## 99                                             Wikimedia Hackathon 2024
-## 100                                                                    
-## 101               MediaWiki Users and Developers Conference Spring 2024
-## 102                                                                    
-## 103                                                     View livestream
-## 104               MediaWiki 1.39.7, 1.40.3 and 1.41.1 security releases
-## 105                                                    MediaWiki 1.41.0
-## 106                                           MediaWiki 1.35.x versions
-## 107              MediaWiki 1.35.14, 1.39.6 and 1.40.2 security releases
-## 108                                                           More news
-## 109                                                    Other languages:
-## 110                                                                    
-## 111                                                             English
-## 112                                                           Afrikaans
-## 113                                                             العربية
-## 114                                                           asturianu
-## 115                                                          беларуская
-## 116                                            беларуская (тарашкевіца)
-## 117                                                           български
-## 118                                                               বাংলা
-## 119                                                            bosanski
-## 120                                                              català
-## 121                                                               کوردی
-## 122                                                             čeština
-## 123                                                               dansk
-## 124                                                             Deutsch
-## 125                                                             español
-## 126                                                               فارسی
-## 127                                                               suomi
-## 128                                                            français
-## 129                                                              galego
-## 130                                                              ગુજરાતી
-## 131                                                               עברית
-## 132                                                               हिन्दी
-## 133                                                            hrvatski
-## 134                                                              magyar
-## 135                                                             հայերեն
-## 136                                                    Bahasa Indonesia
-## 137                                                            italiano
-## 138                                                              日本語
-## 139                                                                Jawa
-## 140                                                             қазақша
-## 141                                                              한국어
-## 142                                                       Bahasa Melayu
-## 143                                                            Mirandés
-## 144                                                          Nederlands
-## 145                                                              polski
-## 146                                                           português
-## 147                                                 português do Brasil
-## 148                                                              română
-## 149                                                             русский
-## 150                                                               sardu
-## 151                                                                සිංහල
-## 152                                                          slovenčina
-## 153                                                         slovenščina
-## 154                                                          Soomaaliga
-## 155                                                               shqip
-## 156                                                     српски / srpski
-## 157                                                             svenska
-## 158                                                                 ไทย
-## 159                                                              Türkçe
-## 160                                                          українська
-## 161                                                          Tiếng Việt
-## 162                                                                粵語
-## 163                                                                中文
-## 164 https://www.mediawiki.org/w/index.php?title=MediaWiki&amp;oldid=6287429
-## 165                                                     Languages pages
-## 166                     Creative Commons Attribution-ShareAlike License
-## 167                                                        Terms of Use
-## 168                                                      Privacy policy
-## 169                                                 About mediawiki.org
-## 170                                                         Disclaimers
-## 171                                                     Code of Conduct
-## 172                                                          Developers
-## 173                                                          Statistics
-## 174                                                    Cookie statement
-## 175                                                         Mobile view
-## 176                                                                    
-## 177                                                                    
-##                                                                                                                              URL
-## 1                                                                                                                   #bodyContent
-## 2                                                                                                                /wiki/MediaWiki
-## 3                                                                                                                 /wiki/Download
-## 4                                                                                   /wiki/Special:MyLanguage/Category:Extensions
-## 5                                                                                                https://techblog.wikimedia.org/
-## 6                                                                                     /wiki/Special:MyLanguage/How_to_contribute
-## 7                                                                                         /wiki/Special:MyLanguage/Help:Contents
-## 8                                                                                            /wiki/Special:MyLanguage/Manual:FAQ
-## 9                                                                                       /wiki/Special:MyLanguage/Manual:Contents
-## 10                                                                                                    /wiki/Project:Support_desk
-## 11                                                                                        /wiki/Special:MyLanguage/Communication
-## 12                                                                                              https://developer.wikimedia.org/
-## 13                                                                                                  /wiki/Development_statistics
-## 14                                                                                                            /wiki/Project:Help
-## 15                                                                                                   /wiki/Special:RecentChanges
-## 16                                                                                                   /wiki/Special:LanguageStats
-## 17                                                                                                          /wiki/Special:Random
-## 18                                                                                                    /wiki/Project:Village_Pump
-## 19                                                                                                         /wiki/Project:Sandbox
-## 20                                                                                                               /wiki/MediaWiki
-## 21                                                                                                          /wiki/Special:Search
-## 22                                                                                                                             #
-## 23                                                                   /w/index.php?title=Special:CreateAccount&amp;returnto=MediaWiki
-## 24                                                                       /w/index.php?title=Special:UserLogin&amp;returnto=MediaWiki
-## 25                                                                   /w/index.php?title=Special:CreateAccount&amp;returnto=MediaWiki
-## 26                                                                       /w/index.php?title=Special:UserLogin&amp;returnto=MediaWiki
-## 27                                                                                                       /wiki/Help:Introduction
-## 28                                                                                                 /wiki/Special:MyContributions
-## 29                                                                                                          /wiki/Special:MyTalk
-## 30                                                                                                               /wiki/MediaWiki
-## 31                                                                                                          /wiki/Talk:MediaWiki
-## 32                                                                                                               /wiki/MediaWiki
-## 33                                                                                      /w/index.php?title=MediaWiki&amp;action=edit
-## 34                                                                                   /w/index.php?title=MediaWiki&amp;action=history
-## 35                                                                                                               /wiki/MediaWiki
-## 36                                                                                      /w/index.php?title=MediaWiki&amp;action=edit
-## 37                                                                                   /w/index.php?title=MediaWiki&amp;action=history
-## 38                                                                                         /wiki/Special:WhatLinksHere/MediaWiki
-## 39                                                                                   /wiki/Special:RecentChangesLinked/MediaWiki
-## 40                                                                             //commons.wikimedia.org/wiki/Special:UploadWizard
-## 41                                                                                                    /wiki/Special:SpecialPages
-## 42                                                                                    /w/index.php?title=MediaWiki&amp;oldid=6287429
-## 43                                                                                      /w/index.php?title=MediaWiki&amp;action=info
-## 44                                  /w/index.php?title=Special:CiteThisPage&amp;page=MediaWiki&amp;id=6287429&amp;wpFormIdentifier=titleform
-## 45                                /w/index.php?title=Special:UrlShortener&amp;url=https%3A%2F%2Fwww.mediawiki.org%2Fwiki%2FMediaWiki
-## 46                                      /w/index.php?title=Special:QrCode&amp;url=https%3A%2F%2Fwww.mediawiki.org%2Fwiki%2FMediaWiki
-## 47                                                                        https://www.wikidata.org/wiki/Special:EntityPage/Q5296
-## 48                                                        /w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=MediaWiki
-## 49                                           /w/index.php?title=Special:DownloadAsPdf&amp;page=MediaWiki&amp;action=show-download-screen
-## 50                                                                                    /w/index.php?title=MediaWiki&amp;printable=yes
-## 51                                                                                  https://commons.wikimedia.org/wiki/Main_Page
-## 52                                                                                    https://foundation.wikimedia.org/wiki/Home
-## 53                                                                                     https://meta.wikimedia.org/wiki/Main_Page
-## 54                                                                                 https://outreach.wikimedia.org/wiki/Main_Page
-## 55                                                                                         https://wikisource.org/wiki/Main_Page
-## 56                                                                                  https://species.wikimedia.org/wiki/Main_Page
-## 57                                                                                       https://en.wikibooks.org/wiki/Main_Page
-## 58                                                                              https://www.wikidata.org/wiki/Wikidata:Main_Page
-## 59                                                                    https://www.wikifunctions.org/wiki/Wikifunctions:Main_Page
-## 60                                                                                https://wikimania.wikimedia.org/wiki/Wikimania
-## 61                                                                                        https://en.wikinews.org/wiki/Main_Page
-## 62                                                                                       https://en.wikipedia.org/wiki/Main_Page
-## 63                                                                                       https://en.wikiquote.org/wiki/Main_Page
-## 64                                                                                      https://en.wikisource.org/wiki/Main_Page
-## 65                                                                         https://en.wikiversity.org/wiki/Wikiversity:Main_Page
-## 66                                                                                      https://en.wikivoyage.org/wiki/Main_Page
-## 67                                                                           https://en.wiktionary.org/wiki/Wiktionary:Main_Page
-## 68                                                                /wiki/File:Wikimedia_Hackathon_2024_-_Group_photo,_360_cam.jpg
-## 69                                                                             /wiki/Special:MyLanguage/Wikimedia_Hackathon_2024
-## 70                                                                                                /wiki/Wikimedia_Hackathon_2024
-## 71                                                                                /wiki/Special:MyLanguage/Sites_using_MediaWiki
-## 72                                                                               /wiki/Special:MyLanguage/MediaWiki_testimonials
-## 73                                                                                         /wiki/Special:MyLanguage/Localisation
-## 74                                                                                           https://en.wikipedia.org/wiki/FLOSS
-## 75                                                                          /wiki/Special:MyLanguage/Manual:What_is_MediaWiki%3F
-## 76                                           /wiki/Special:MyLanguage/Manual:Deciding_whether_to_use_a_wiki_as_your_website_type
-## 77                                                                                             /wiki/Special:MyLanguage/Download
-## 78                                                                          /wiki/Special:MyLanguage/Manual:Installing_MediaWiki
-## 79                                                                         /wiki/Special:MyLanguage/Manual:System_administration
-## 80                                                                                    /wiki/Special:MyLanguage/Manual:Extensions
-## 81                                                                    /wiki/Special:MyLanguage/Manual:Common_errors_and_symptoms
-## 82                                                                                           /wiki/Special:MyLanguage/Manual:FAQ
-## 83                                                                                     /wiki/Special:MyLanguage/Hosting_services
-## 84                                                              /wiki/Special:MyLanguage/Professional_development_and_consulting
-## 85                                                                                 /wiki/Professional_development_and_consulting
-## 86                                                                      /wiki/Special:MyLanguage/MediaWiki_Stakeholders%27_Group
-## 87                                                                                      /wiki/Special:MyLanguage/Help:Navigation
-## 88                                                                                                         /wiki/Help:Navigation
-## 89                                                                                   /wiki/Special:MyLanguage/Help:Editing_pages
-## 90                                                                                                      /wiki/Help:Editing_pages
-## 91                                                                                        /wiki/Special:MyLanguage/Help:Contents
-## 92                                                                                                           /wiki/Help:Contents
-## 93                                                                                        /wiki/Special:MyLanguage/Developer_hub
-## 94                                                                                               https://developer.wikimedia.org
-## 95                                                                                                    /wiki/Project:Support_desk
-## 96                                                                                    /wiki/Special:MyLanguage/How_to_contribute
-## 97                                                                                  /wiki/Special:MyLanguage/How_to_report_a_bug
-## 98                                                                                                     /wiki/How_to_report_a_bug
-## 99                                                                             /wiki/Special:MyLanguage/Wikimedia_Hackathon_2024
-## 100                                                                                               /wiki/Wikimedia_Hackathon_2024
-## 101                                               /wiki/Special:MyLanguage/MediaWiki_Users_and_Developers_Conference_Spring_2024
-## 102                                                                  /wiki/MediaWiki_Users_and_Developers_Conference_Spring_2024
-## 103                                                       /wiki/MediaWiki_Users_and_Developers_Conference_2024#Remote_attendance
-## 104 https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/message/V3WXEPXV2DU6WTVEKK4XHW4QXD5OFKD7/
-## 105  https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/thread/OMDFHJ2SKKJH775RW4UTC754OY4TP7UU/
-## 106         https://lists.wikimedia.org/hyperkitty/list/mediawiki-l@lists.wikimedia.org/thread/72B3GNSDFUJEM23W54735OW34IHCZL6F/
-## 107 https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/message/TDBUBCCOQJUT4SCHJNPHKQNPBUUETY52/
-## 108                                                                       https://www.mediawiki.org/wiki/Special:MyLanguage/News
-## 109                                                                             /wiki/Special:MyLanguage/Project:Language_policy
-## 110                                                                                                /wiki/Project:Language_policy
-## 111                                                                                                     /wiki/Template:Main_page
-## 112                                                                         https://www.mediawiki.org/wiki/Template:Main_page/af
-## 113                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ar
-## 114                                                                        https://www.mediawiki.org/wiki/Template:Main_page/ast
-## 115                                                                         https://www.mediawiki.org/wiki/Template:Main_page/be
-## 116                                                                  https://www.mediawiki.org/wiki/Template:Main_page/be-tarask
-## 117                                                                         https://www.mediawiki.org/wiki/Template:Main_page/bg
-## 118                                                                         https://www.mediawiki.org/wiki/Template:Main_page/bn
-## 119                                                                         https://www.mediawiki.org/wiki/Template:Main_page/bs
-## 120                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ca
-## 121                                                                        https://www.mediawiki.org/wiki/Template:Main_page/ckb
-## 122                                                                         https://www.mediawiki.org/wiki/Template:Main_page/cs
-## 123                                                                         https://www.mediawiki.org/wiki/Template:Main_page/da
-## 124                                                                         https://www.mediawiki.org/wiki/Template:Main_page/de
-## 125                                                                         https://www.mediawiki.org/wiki/Template:Main_page/es
-## 126                                                                         https://www.mediawiki.org/wiki/Template:Main_page/fa
-## 127                                                                         https://www.mediawiki.org/wiki/Template:Main_page/fi
-## 128                                                                         https://www.mediawiki.org/wiki/Template:Main_page/fr
-## 129                                                                         https://www.mediawiki.org/wiki/Template:Main_page/gl
-## 130                                                                         https://www.mediawiki.org/wiki/Template:Main_page/gu
-## 131                                                                         https://www.mediawiki.org/wiki/Template:Main_page/he
-## 132                                                                         https://www.mediawiki.org/wiki/Template:Main_page/hi
-## 133                                                                         https://www.mediawiki.org/wiki/Template:Main_page/hr
-## 134                                                                         https://www.mediawiki.org/wiki/Template:Main_page/hu
-## 135                                                                         https://www.mediawiki.org/wiki/Template:Main_page/hy
-## 136                                                                         https://www.mediawiki.org/wiki/Template:Main_page/id
-## 137                                                                         https://www.mediawiki.org/wiki/Template:Main_page/it
-## 138                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ja
-## 139                                                                         https://www.mediawiki.org/wiki/Template:Main_page/jv
-## 140                                                                         https://www.mediawiki.org/wiki/Template:Main_page/kk
-## 141                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ko
-## 142                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ms
-## 143                                                                        https://www.mediawiki.org/wiki/Template:Main_page/mwl
-## 144                                                                         https://www.mediawiki.org/wiki/Template:Main_page/nl
-## 145                                                                         https://www.mediawiki.org/wiki/Template:Main_page/pl
-## 146                                                                         https://www.mediawiki.org/wiki/Template:Main_page/pt
-## 147                                                                      https://www.mediawiki.org/wiki/Template:Main_page/pt-br
-## 148                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ro
-## 149                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ru
-## 150                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sc
-## 151                                                                         https://www.mediawiki.org/wiki/Template:Main_page/si
-## 152                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sk
-## 153                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sl
-## 154                                                                         https://www.mediawiki.org/wiki/Template:Main_page/so
-## 155                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sq
-## 156                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sr
-## 157                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sv
-## 158                                                                         https://www.mediawiki.org/wiki/Template:Main_page/th
-## 159                                                                         https://www.mediawiki.org/wiki/Template:Main_page/tr
-## 160                                                                         https://www.mediawiki.org/wiki/Template:Main_page/uk
-## 161                                                                         https://www.mediawiki.org/wiki/Template:Main_page/vi
-## 162                                                                        https://www.mediawiki.org/wiki/Template:Main_page/yue
-## 163                                                                         https://www.mediawiki.org/wiki/Template:Main_page/zh
-## 164                                                          https://www.mediawiki.org/w/index.php?title=MediaWiki&amp;oldid=6287429
-## 165                                                                                               /wiki/Category:Languages_pages
-## 166                                                                       https://creativecommons.org/licenses/by-sa/4.0/deed.en
-## 167                                                 https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Terms_of_Use
-## 168                                               https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy
-## 169                                                                                                          /wiki/Project:About
-## 170                                                                                             /wiki/Project:General_disclaimer
-## 171                                                            https://www.mediawiki.org/wiki/Special:MyLanguage/Code_of_Conduct
-## 172                                                                                              https://developer.wikimedia.org
-## 173                                                                              https://stats.wikimedia.org/#/www.mediawiki.org
-## 174                                             https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Cookie_statement
-## 175                                                //m.mediawiki.org/w/index.php?title=MediaWiki&amp;mobileaction=toggle_view_mobile
-## 176                                                                                             https://wikimediafoundation.org/
-## 177                                                                                                   https://www.mediawiki.org/
-##                                                                                                                          Enlace2
-## 1                                                                                                                   #bodyContent
-## 2                                                                                                                /wiki/MediaWiki
-## 3                                                                                                                 /wiki/Download
-## 4                                                                                   /wiki/Special:MyLanguage/Category:Extensions
-## 5                                                                                                https://techblog.wikimedia.org/
-## 6                                                                                     /wiki/Special:MyLanguage/How_to_contribute
-## 7                                                                                         /wiki/Special:MyLanguage/Help:Contents
-## 8                                                                                            /wiki/Special:MyLanguage/Manual:FAQ
-## 9                                                                                       /wiki/Special:MyLanguage/Manual:Contents
-## 10                                                                                                    /wiki/Project:Support_desk
-## 11                                                                                        /wiki/Special:MyLanguage/Communication
-## 12                                                                                              https://developer.wikimedia.org/
-## 13                                                                                                  /wiki/Development_statistics
-## 14                                                                                                            /wiki/Project:Help
-## 15                                                                                                   /wiki/Special:RecentChanges
-## 16                                                                                                   /wiki/Special:LanguageStats
-## 17                                                                                                          /wiki/Special:Random
-## 18                                                                                                    /wiki/Project:Village_Pump
-## 19                                                                                                         /wiki/Project:Sandbox
-## 20                                                                                                               /wiki/MediaWiki
-## 21                                                                                                          /wiki/Special:Search
-## 22                                                                                                                             #
-## 23                                                                   /w/index.php?title=Special:CreateAccount&amp;returnto=MediaWiki
-## 24                                                                       /w/index.php?title=Special:UserLogin&amp;returnto=MediaWiki
-## 25                                                                   /w/index.php?title=Special:CreateAccount&amp;returnto=MediaWiki
-## 26                                                                       /w/index.php?title=Special:UserLogin&amp;returnto=MediaWiki
-## 27                                                                                                       /wiki/Help:Introduction
-## 28                                                                                                 /wiki/Special:MyContributions
-## 29                                                                                                          /wiki/Special:MyTalk
-## 30                                                                                                               /wiki/MediaWiki
-## 31                                                                                                          /wiki/Talk:MediaWiki
-## 32                                                                                                               /wiki/MediaWiki
-## 33                                                                                      /w/index.php?title=MediaWiki&amp;action=edit
-## 34                                                                                   /w/index.php?title=MediaWiki&amp;action=history
-## 35                                                                                                               /wiki/MediaWiki
-## 36                                                                                      /w/index.php?title=MediaWiki&amp;action=edit
-## 37                                                                                   /w/index.php?title=MediaWiki&amp;action=history
-## 38                                                                                         /wiki/Special:WhatLinksHere/MediaWiki
-## 39                                                                                   /wiki/Special:RecentChangesLinked/MediaWiki
-## 40                                                                             //commons.wikimedia.org/wiki/Special:UploadWizard
-## 41                                                                                                    /wiki/Special:SpecialPages
-## 42                                                                                    /w/index.php?title=MediaWiki&amp;oldid=6287429
-## 43                                                                                      /w/index.php?title=MediaWiki&amp;action=info
-## 44                                  /w/index.php?title=Special:CiteThisPage&amp;page=MediaWiki&amp;id=6287429&amp;wpFormIdentifier=titleform
-## 45                                /w/index.php?title=Special:UrlShortener&amp;url=https%3A%2F%2Fwww.mediawiki.org%2Fwiki%2FMediaWiki
-## 46                                      /w/index.php?title=Special:QrCode&amp;url=https%3A%2F%2Fwww.mediawiki.org%2Fwiki%2FMediaWiki
-## 47                                                                        https://www.wikidata.org/wiki/Special:EntityPage/Q5296
-## 48                                                        /w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=MediaWiki
-## 49                                           /w/index.php?title=Special:DownloadAsPdf&amp;page=MediaWiki&amp;action=show-download-screen
-## 50                                                                                    /w/index.php?title=MediaWiki&amp;printable=yes
-## 51                                                                                  https://commons.wikimedia.org/wiki/Main_Page
-## 52                                                                                    https://foundation.wikimedia.org/wiki/Home
-## 53                                                                                     https://meta.wikimedia.org/wiki/Main_Page
-## 54                                                                                 https://outreach.wikimedia.org/wiki/Main_Page
-## 55                                                                                         https://wikisource.org/wiki/Main_Page
-## 56                                                                                  https://species.wikimedia.org/wiki/Main_Page
-## 57                                                                                       https://en.wikibooks.org/wiki/Main_Page
-## 58                                                                              https://www.wikidata.org/wiki/Wikidata:Main_Page
-## 59                                                                    https://www.wikifunctions.org/wiki/Wikifunctions:Main_Page
-## 60                                                                                https://wikimania.wikimedia.org/wiki/Wikimania
-## 61                                                                                        https://en.wikinews.org/wiki/Main_Page
-## 62                                                                                       https://en.wikipedia.org/wiki/Main_Page
-## 63                                                                                       https://en.wikiquote.org/wiki/Main_Page
-## 64                                                                                      https://en.wikisource.org/wiki/Main_Page
-## 65                                                                         https://en.wikiversity.org/wiki/Wikiversity:Main_Page
-## 66                                                                                      https://en.wikivoyage.org/wiki/Main_Page
-## 67                                                                           https://en.wiktionary.org/wiki/Wiktionary:Main_Page
-## 68                                                                /wiki/File:Wikimedia_Hackathon_2024_-_Group_photo,_360_cam.jpg
-## 69                                                                             /wiki/Special:MyLanguage/Wikimedia_Hackathon_2024
-## 70                                                                                                /wiki/Wikimedia_Hackathon_2024
-## 71                                                                                /wiki/Special:MyLanguage/Sites_using_MediaWiki
-## 72                                                                               /wiki/Special:MyLanguage/MediaWiki_testimonials
-## 73                                                                                         /wiki/Special:MyLanguage/Localisation
-## 74                                                                                           https://en.wikipedia.org/wiki/FLOSS
-## 75                                                                          /wiki/Special:MyLanguage/Manual:What_is_MediaWiki%3F
-## 76                                           /wiki/Special:MyLanguage/Manual:Deciding_whether_to_use_a_wiki_as_your_website_type
-## 77                                                                                             /wiki/Special:MyLanguage/Download
-## 78                                                                          /wiki/Special:MyLanguage/Manual:Installing_MediaWiki
-## 79                                                                         /wiki/Special:MyLanguage/Manual:System_administration
-## 80                                                                                    /wiki/Special:MyLanguage/Manual:Extensions
-## 81                                                                    /wiki/Special:MyLanguage/Manual:Common_errors_and_symptoms
-## 82                                                                                           /wiki/Special:MyLanguage/Manual:FAQ
-## 83                                                                                     /wiki/Special:MyLanguage/Hosting_services
-## 84                                                              /wiki/Special:MyLanguage/Professional_development_and_consulting
-## 85                                                                                 /wiki/Professional_development_and_consulting
-## 86                                                                      /wiki/Special:MyLanguage/MediaWiki_Stakeholders%27_Group
-## 87                                                                                      /wiki/Special:MyLanguage/Help:Navigation
-## 88                                                                                                         /wiki/Help:Navigation
-## 89                                                                                   /wiki/Special:MyLanguage/Help:Editing_pages
-## 90                                                                                                      /wiki/Help:Editing_pages
-## 91                                                                                        /wiki/Special:MyLanguage/Help:Contents
-## 92                                                                                                           /wiki/Help:Contents
-## 93                                                                                        /wiki/Special:MyLanguage/Developer_hub
-## 94                                                                                               https://developer.wikimedia.org
-## 95                                                                                                    /wiki/Project:Support_desk
-## 96                                                                                    /wiki/Special:MyLanguage/How_to_contribute
-## 97                                                                                  /wiki/Special:MyLanguage/How_to_report_a_bug
-## 98                                                                                                     /wiki/How_to_report_a_bug
-## 99                                                                             /wiki/Special:MyLanguage/Wikimedia_Hackathon_2024
-## 100                                                                                               /wiki/Wikimedia_Hackathon_2024
-## 101                                               /wiki/Special:MyLanguage/MediaWiki_Users_and_Developers_Conference_Spring_2024
-## 102                                                                  /wiki/MediaWiki_Users_and_Developers_Conference_Spring_2024
-## 103                                                       /wiki/MediaWiki_Users_and_Developers_Conference_2024#Remote_attendance
-## 104 https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/message/V3WXEPXV2DU6WTVEKK4XHW4QXD5OFKD7/
-## 105  https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/thread/OMDFHJ2SKKJH775RW4UTC754OY4TP7UU/
-## 106         https://lists.wikimedia.org/hyperkitty/list/mediawiki-l@lists.wikimedia.org/thread/72B3GNSDFUJEM23W54735OW34IHCZL6F/
-## 107 https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/message/TDBUBCCOQJUT4SCHJNPHKQNPBUUETY52/
-## 108                                                                       https://www.mediawiki.org/wiki/Special:MyLanguage/News
-## 109                                                                             /wiki/Special:MyLanguage/Project:Language_policy
-## 110                                                                                                /wiki/Project:Language_policy
-## 111                                                                                                     /wiki/Template:Main_page
-## 112                                                                         https://www.mediawiki.org/wiki/Template:Main_page/af
-## 113                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ar
-## 114                                                                        https://www.mediawiki.org/wiki/Template:Main_page/ast
-## 115                                                                         https://www.mediawiki.org/wiki/Template:Main_page/be
-## 116                                                                  https://www.mediawiki.org/wiki/Template:Main_page/be-tarask
-## 117                                                                         https://www.mediawiki.org/wiki/Template:Main_page/bg
-## 118                                                                         https://www.mediawiki.org/wiki/Template:Main_page/bn
-## 119                                                                         https://www.mediawiki.org/wiki/Template:Main_page/bs
-## 120                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ca
-## 121                                                                        https://www.mediawiki.org/wiki/Template:Main_page/ckb
-## 122                                                                         https://www.mediawiki.org/wiki/Template:Main_page/cs
-## 123                                                                         https://www.mediawiki.org/wiki/Template:Main_page/da
-## 124                                                                         https://www.mediawiki.org/wiki/Template:Main_page/de
-## 125                                                                         https://www.mediawiki.org/wiki/Template:Main_page/es
-## 126                                                                         https://www.mediawiki.org/wiki/Template:Main_page/fa
-## 127                                                                         https://www.mediawiki.org/wiki/Template:Main_page/fi
-## 128                                                                         https://www.mediawiki.org/wiki/Template:Main_page/fr
-## 129                                                                         https://www.mediawiki.org/wiki/Template:Main_page/gl
-## 130                                                                         https://www.mediawiki.org/wiki/Template:Main_page/gu
-## 131                                                                         https://www.mediawiki.org/wiki/Template:Main_page/he
-## 132                                                                         https://www.mediawiki.org/wiki/Template:Main_page/hi
-## 133                                                                         https://www.mediawiki.org/wiki/Template:Main_page/hr
-## 134                                                                         https://www.mediawiki.org/wiki/Template:Main_page/hu
-## 135                                                                         https://www.mediawiki.org/wiki/Template:Main_page/hy
-## 136                                                                         https://www.mediawiki.org/wiki/Template:Main_page/id
-## 137                                                                         https://www.mediawiki.org/wiki/Template:Main_page/it
-## 138                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ja
-## 139                                                                         https://www.mediawiki.org/wiki/Template:Main_page/jv
-## 140                                                                         https://www.mediawiki.org/wiki/Template:Main_page/kk
-## 141                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ko
-## 142                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ms
-## 143                                                                        https://www.mediawiki.org/wiki/Template:Main_page/mwl
-## 144                                                                         https://www.mediawiki.org/wiki/Template:Main_page/nl
-## 145                                                                         https://www.mediawiki.org/wiki/Template:Main_page/pl
-## 146                                                                         https://www.mediawiki.org/wiki/Template:Main_page/pt
-## 147                                                                      https://www.mediawiki.org/wiki/Template:Main_page/pt-br
-## 148                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ro
-## 149                                                                         https://www.mediawiki.org/wiki/Template:Main_page/ru
-## 150                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sc
-## 151                                                                         https://www.mediawiki.org/wiki/Template:Main_page/si
-## 152                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sk
-## 153                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sl
-## 154                                                                         https://www.mediawiki.org/wiki/Template:Main_page/so
-## 155                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sq
-## 156                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sr
-## 157                                                                         https://www.mediawiki.org/wiki/Template:Main_page/sv
-## 158                                                                         https://www.mediawiki.org/wiki/Template:Main_page/th
-## 159                                                                         https://www.mediawiki.org/wiki/Template:Main_page/tr
-## 160                                                                         https://www.mediawiki.org/wiki/Template:Main_page/uk
-## 161                                                                         https://www.mediawiki.org/wiki/Template:Main_page/vi
-## 162                                                                        https://www.mediawiki.org/wiki/Template:Main_page/yue
-## 163                                                                         https://www.mediawiki.org/wiki/Template:Main_page/zh
-## 164                                                          https://www.mediawiki.org/w/index.php?title=MediaWiki&amp;oldid=6287429
-## 165                                                                                               /wiki/Category:Languages_pages
-## 166                                                                       https://creativecommons.org/licenses/by-sa/4.0/deed.en
-## 167                                                 https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Terms_of_Use
-## 168                                               https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy
-## 169                                                                                                          /wiki/Project:About
-## 170                                                                                             /wiki/Project:General_disclaimer
-## 171                                                            https://www.mediawiki.org/wiki/Special:MyLanguage/Code_of_Conduct
-## 172                                                                                              https://developer.wikimedia.org
-## 173                                                                              https://stats.wikimedia.org/#/www.mediawiki.org
-## 174                                             https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Cookie_statement
-## 175                                                //m.mediawiki.org/w/index.php?title=MediaWiki&amp;mobileaction=toggle_view_mobile
-## 176                                                                                             https://wikimediafoundation.org/
-## 177                                                                                                   https://www.mediawiki.org/</code></pre>
+htmlTable(tablaPrin)</code></pre>
+<table class="gmisc_table" style="border-collapse: collapse; margin-top: 1em; margin-bottom: 1em;">
+<thead>
+<tr>
+<th style="border-bottom: 1px solid grey; border-top: 2px solid grey;">
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">
+enlaces
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">
+URL
+</th>
+<th style="font-weight: 900; border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">
+Enlace2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">
+1
+</td>
+<td style="text-align: center;">
+Jump to content
+</td>
+<td style="text-align: center;">
+#bodyContent
+</td>
+<td style="text-align: center;">
+#bodyContent
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+2
+</td>
+<td style="text-align: center;">
+Main page
+</td>
+<td style="text-align: center;">
+/wiki/MediaWiki
+</td>
+<td style="text-align: center;">
+/wiki/MediaWiki
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+3
+</td>
+<td style="text-align: center;">
+Get MediaWiki
+</td>
+<td style="text-align: center;">
+/wiki/Download
+</td>
+<td style="text-align: center;">
+/wiki/Download
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+4
+</td>
+<td style="text-align: center;">
+Get extensions
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Category:Extensions
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Category:Extensions
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+5
+</td>
+<td style="text-align: center;">
+Tech blog
+</td>
+<td style="text-align: center;">
+<a href="https://techblog.wikimedia.org/" class="uri">https://techblog.wikimedia.org/</a>
+</td>
+<td style="text-align: center;">
+<a href="https://techblog.wikimedia.org/" class="uri">https://techblog.wikimedia.org/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+6
+</td>
+<td style="text-align: center;">
+Contribute
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/How_to_contribute
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/How_to_contribute
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+7
+</td>
+<td style="text-align: center;">
+User help
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Help:Contents
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Help:Contents
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+8
+</td>
+<td style="text-align: center;">
+FAQ
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Manual:FAQ
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Manual:FAQ
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+9
+</td>
+<td style="text-align: center;">
+Technical manual
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Manual:Contents
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Manual:Contents
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+10
+</td>
+<td style="text-align: center;">
+Support desk
+</td>
+<td style="text-align: center;">
+/wiki/Project:Support_desk
+</td>
+<td style="text-align: center;">
+/wiki/Project:Support_desk
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+11
+</td>
+<td style="text-align: center;">
+Communication
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Communication
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Communication
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+12
+</td>
+<td style="text-align: center;">
+Developer portal
+</td>
+<td style="text-align: center;">
+<a href="https://developer.wikimedia.org/" class="uri">https://developer.wikimedia.org/</a>
+</td>
+<td style="text-align: center;">
+<a href="https://developer.wikimedia.org/" class="uri">https://developer.wikimedia.org/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+13
+</td>
+<td style="text-align: center;">
+Code statistics
+</td>
+<td style="text-align: center;">
+/wiki/Development_statistics
+</td>
+<td style="text-align: center;">
+/wiki/Development_statistics
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+14
+</td>
+<td style="text-align: center;">
+Community portal
+</td>
+<td style="text-align: center;">
+/wiki/Project:Help
+</td>
+<td style="text-align: center;">
+/wiki/Project:Help
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+15
+</td>
+<td style="text-align: center;">
+Recent changes
+</td>
+<td style="text-align: center;">
+/wiki/Special:RecentChanges
+</td>
+<td style="text-align: center;">
+/wiki/Special:RecentChanges
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+16
+</td>
+<td style="text-align: center;">
+Translate content
+</td>
+<td style="text-align: center;">
+/wiki/Special:LanguageStats
+</td>
+<td style="text-align: center;">
+/wiki/Special:LanguageStats
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+17
+</td>
+<td style="text-align: center;">
+Random page
+</td>
+<td style="text-align: center;">
+/wiki/Special:Random
+</td>
+<td style="text-align: center;">
+/wiki/Special:Random
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+18
+</td>
+<td style="text-align: center;">
+Village pump
+</td>
+<td style="text-align: center;">
+/wiki/Project:Village_Pump
+</td>
+<td style="text-align: center;">
+/wiki/Project:Village_Pump
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+19
+</td>
+<td style="text-align: center;">
+Sandbox
+</td>
+<td style="text-align: center;">
+/wiki/Project:Sandbox
+</td>
+<td style="text-align: center;">
+/wiki/Project:Sandbox
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+20
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+/wiki/MediaWiki
+</td>
+<td style="text-align: center;">
+/wiki/MediaWiki
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+21
+</td>
+<td style="text-align: center;">
+Search
+</td>
+<td style="text-align: center;">
+/wiki/Special:Search
+</td>
+<td style="text-align: center;">
+/wiki/Special:Search
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+22
+</td>
+<td style="text-align: center;">
+English
+</td>
+<td style="text-align: center;">
+#
+</td>
+<td style="text-align: center;">
+#
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+23
+</td>
+<td style="text-align: center;">
+Create account
+</td>
+<td style="text-align: center;">
+/w/index.php?title=Special:CreateAccount&amp;returnto=MediaWiki
+</td>
+<td style="text-align: center;">
+/w/index.php?title=Special:CreateAccount&amp;returnto=MediaWiki
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+24
+</td>
+<td style="text-align: center;">
+Log in
+</td>
+<td style="text-align: center;">
+/w/index.php?title=Special:UserLogin&amp;returnto=MediaWiki
+</td>
+<td style="text-align: center;">
+/w/index.php?title=Special:UserLogin&amp;returnto=MediaWiki
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+25
+</td>
+<td style="text-align: center;">
+Create account
+</td>
+<td style="text-align: center;">
+/w/index.php?title=Special:CreateAccount&amp;returnto=MediaWiki
+</td>
+<td style="text-align: center;">
+/w/index.php?title=Special:CreateAccount&amp;returnto=MediaWiki
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+26
+</td>
+<td style="text-align: center;">
+Log in
+</td>
+<td style="text-align: center;">
+/w/index.php?title=Special:UserLogin&amp;returnto=MediaWiki
+</td>
+<td style="text-align: center;">
+/w/index.php?title=Special:UserLogin&amp;returnto=MediaWiki
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+27
+</td>
+<td style="text-align: center;">
+learn more
+</td>
+<td style="text-align: center;">
+/wiki/Help:Introduction
+</td>
+<td style="text-align: center;">
+/wiki/Help:Introduction
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+28
+</td>
+<td style="text-align: center;">
+Contributions
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyContributions
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyContributions
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+29
+</td>
+<td style="text-align: center;">
+Talk
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyTalk
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyTalk
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+30
+</td>
+<td style="text-align: center;">
+Main Page
+</td>
+<td style="text-align: center;">
+/wiki/MediaWiki
+</td>
+<td style="text-align: center;">
+/wiki/MediaWiki
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+31
+</td>
+<td style="text-align: center;">
+Discussion
+</td>
+<td style="text-align: center;">
+/wiki/Talk:MediaWiki
+</td>
+<td style="text-align: center;">
+/wiki/Talk:MediaWiki
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+32
+</td>
+<td style="text-align: center;">
+Read
+</td>
+<td style="text-align: center;">
+/wiki/MediaWiki
+</td>
+<td style="text-align: center;">
+/wiki/MediaWiki
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+33
+</td>
+<td style="text-align: center;">
+View source
+</td>
+<td style="text-align: center;">
+/w/index.php?title=MediaWiki&amp;action=edit
+</td>
+<td style="text-align: center;">
+/w/index.php?title=MediaWiki&amp;action=edit
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+34
+</td>
+<td style="text-align: center;">
+View history
+</td>
+<td style="text-align: center;">
+/w/index.php?title=MediaWiki&amp;action=history
+</td>
+<td style="text-align: center;">
+/w/index.php?title=MediaWiki&amp;action=history
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+35
+</td>
+<td style="text-align: center;">
+Read
+</td>
+<td style="text-align: center;">
+/wiki/MediaWiki
+</td>
+<td style="text-align: center;">
+/wiki/MediaWiki
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+36
+</td>
+<td style="text-align: center;">
+View source
+</td>
+<td style="text-align: center;">
+/w/index.php?title=MediaWiki&amp;action=edit
+</td>
+<td style="text-align: center;">
+/w/index.php?title=MediaWiki&amp;action=edit
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+37
+</td>
+<td style="text-align: center;">
+View history
+</td>
+<td style="text-align: center;">
+/w/index.php?title=MediaWiki&amp;action=history
+</td>
+<td style="text-align: center;">
+/w/index.php?title=MediaWiki&amp;action=history
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+38
+</td>
+<td style="text-align: center;">
+What links here
+</td>
+<td style="text-align: center;">
+/wiki/Special:WhatLinksHere/MediaWiki
+</td>
+<td style="text-align: center;">
+/wiki/Special:WhatLinksHere/MediaWiki
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+39
+</td>
+<td style="text-align: center;">
+Related changes
+</td>
+<td style="text-align: center;">
+/wiki/Special:RecentChangesLinked/MediaWiki
+</td>
+<td style="text-align: center;">
+/wiki/Special:RecentChangesLinked/MediaWiki
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+40
+</td>
+<td style="text-align: center;">
+Upload file
+</td>
+<td style="text-align: center;">
+//commons.wikimedia.org/wiki/Special:UploadWizard
+</td>
+<td style="text-align: center;">
+//commons.wikimedia.org/wiki/Special:UploadWizard
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+41
+</td>
+<td style="text-align: center;">
+Special pages
+</td>
+<td style="text-align: center;">
+/wiki/Special:SpecialPages
+</td>
+<td style="text-align: center;">
+/wiki/Special:SpecialPages
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+42
+</td>
+<td style="text-align: center;">
+Permanent link
+</td>
+<td style="text-align: center;">
+/w/index.php?title=MediaWiki&amp;oldid=6287429
+</td>
+<td style="text-align: center;">
+/w/index.php?title=MediaWiki&amp;oldid=6287429
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+43
+</td>
+<td style="text-align: center;">
+Page information
+</td>
+<td style="text-align: center;">
+/w/index.php?title=MediaWiki&amp;action=info
+</td>
+<td style="text-align: center;">
+/w/index.php?title=MediaWiki&amp;action=info
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+44
+</td>
+<td style="text-align: center;">
+Cite this page
+</td>
+<td style="text-align: center;">
+/w/index.php?title=Special:CiteThisPage&amp;page=MediaWiki&amp;id=6287429&amp;wpFormIdentifier=titleform
+</td>
+<td style="text-align: center;">
+/w/index.php?title=Special:CiteThisPage&amp;page=MediaWiki&amp;id=6287429&amp;wpFormIdentifier=titleform
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+45
+</td>
+<td style="text-align: center;">
+Get shortened URL
+</td>
+<td style="text-align: center;">
+/w/index.php?title=Special:UrlShortener&amp;url=https%3A%2F%2Fwww.mediawiki.org%2Fwiki%2FMediaWiki
+</td>
+<td style="text-align: center;">
+/w/index.php?title=Special:UrlShortener&amp;url=https%3A%2F%2Fwww.mediawiki.org%2Fwiki%2FMediaWiki
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+46
+</td>
+<td style="text-align: center;">
+Download QR code
+</td>
+<td style="text-align: center;">
+/w/index.php?title=Special:QrCode&amp;url=https%3A%2F%2Fwww.mediawiki.org%2Fwiki%2FMediaWiki
+</td>
+<td style="text-align: center;">
+/w/index.php?title=Special:QrCode&amp;url=https%3A%2F%2Fwww.mediawiki.org%2Fwiki%2FMediaWiki
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+47
+</td>
+<td style="text-align: center;">
+Wikidata item
+</td>
+<td style="text-align: center;">
+<a href="https://www.wikidata.org/wiki/Special:EntityPage/Q5296" class="uri">https://www.wikidata.org/wiki/Special:EntityPage/Q5296</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.wikidata.org/wiki/Special:EntityPage/Q5296" class="uri">https://www.wikidata.org/wiki/Special:EntityPage/Q5296</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+48
+</td>
+<td style="text-align: center;">
+Create a book
+</td>
+<td style="text-align: center;">
+/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=MediaWiki
+</td>
+<td style="text-align: center;">
+/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=MediaWiki
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+49
+</td>
+<td style="text-align: center;">
+Download as PDF
+</td>
+<td style="text-align: center;">
+/w/index.php?title=Special:DownloadAsPdf&amp;page=MediaWiki&amp;action=show-download-screen
+</td>
+<td style="text-align: center;">
+/w/index.php?title=Special:DownloadAsPdf&amp;page=MediaWiki&amp;action=show-download-screen
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+50
+</td>
+<td style="text-align: center;">
+Printable version
+</td>
+<td style="text-align: center;">
+/w/index.php?title=MediaWiki&amp;printable=yes
+</td>
+<td style="text-align: center;">
+/w/index.php?title=MediaWiki&amp;printable=yes
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+51
+</td>
+<td style="text-align: center;">
+Wikimedia Commons
+</td>
+<td style="text-align: center;">
+<a href="https://commons.wikimedia.org/wiki/Main_Page" class="uri">https://commons.wikimedia.org/wiki/Main_Page</a>
+</td>
+<td style="text-align: center;">
+<a href="https://commons.wikimedia.org/wiki/Main_Page" class="uri">https://commons.wikimedia.org/wiki/Main_Page</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+52
+</td>
+<td style="text-align: center;">
+Wikimedia Foundation
+</td>
+<td style="text-align: center;">
+<a href="https://foundation.wikimedia.org/wiki/Home" class="uri">https://foundation.wikimedia.org/wiki/Home</a>
+</td>
+<td style="text-align: center;">
+<a href="https://foundation.wikimedia.org/wiki/Home" class="uri">https://foundation.wikimedia.org/wiki/Home</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+53
+</td>
+<td style="text-align: center;">
+Meta-Wiki
+</td>
+<td style="text-align: center;">
+<a href="https://meta.wikimedia.org/wiki/Main_Page" class="uri">https://meta.wikimedia.org/wiki/Main_Page</a>
+</td>
+<td style="text-align: center;">
+<a href="https://meta.wikimedia.org/wiki/Main_Page" class="uri">https://meta.wikimedia.org/wiki/Main_Page</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+54
+</td>
+<td style="text-align: center;">
+Wikimedia Outreach
+</td>
+<td style="text-align: center;">
+<a href="https://outreach.wikimedia.org/wiki/Main_Page" class="uri">https://outreach.wikimedia.org/wiki/Main_Page</a>
+</td>
+<td style="text-align: center;">
+<a href="https://outreach.wikimedia.org/wiki/Main_Page" class="uri">https://outreach.wikimedia.org/wiki/Main_Page</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+55
+</td>
+<td style="text-align: center;">
+Multilingual Wikisource
+</td>
+<td style="text-align: center;">
+<a href="https://wikisource.org/wiki/Main_Page" class="uri">https://wikisource.org/wiki/Main_Page</a>
+</td>
+<td style="text-align: center;">
+<a href="https://wikisource.org/wiki/Main_Page" class="uri">https://wikisource.org/wiki/Main_Page</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+56
+</td>
+<td style="text-align: center;">
+Wikispecies
+</td>
+<td style="text-align: center;">
+<a href="https://species.wikimedia.org/wiki/Main_Page" class="uri">https://species.wikimedia.org/wiki/Main_Page</a>
+</td>
+<td style="text-align: center;">
+<a href="https://species.wikimedia.org/wiki/Main_Page" class="uri">https://species.wikimedia.org/wiki/Main_Page</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+57
+</td>
+<td style="text-align: center;">
+Wikibooks
+</td>
+<td style="text-align: center;">
+<a href="https://en.wikibooks.org/wiki/Main_Page" class="uri">https://en.wikibooks.org/wiki/Main_Page</a>
+</td>
+<td style="text-align: center;">
+<a href="https://en.wikibooks.org/wiki/Main_Page" class="uri">https://en.wikibooks.org/wiki/Main_Page</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+58
+</td>
+<td style="text-align: center;">
+Wikidata
+</td>
+<td style="text-align: center;">
+<a href="https://www.wikidata.org/wiki/Wikidata:Main_Page" class="uri">https://www.wikidata.org/wiki/Wikidata:Main_Page</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.wikidata.org/wiki/Wikidata:Main_Page" class="uri">https://www.wikidata.org/wiki/Wikidata:Main_Page</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+59
+</td>
+<td style="text-align: center;">
+Wikifunctions
+</td>
+<td style="text-align: center;">
+<a href="https://www.wikifunctions.org/wiki/Wikifunctions:Main_Page" class="uri">https://www.wikifunctions.org/wiki/Wikifunctions:Main_Page</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.wikifunctions.org/wiki/Wikifunctions:Main_Page" class="uri">https://www.wikifunctions.org/wiki/Wikifunctions:Main_Page</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+60
+</td>
+<td style="text-align: center;">
+Wikimania
+</td>
+<td style="text-align: center;">
+<a href="https://wikimania.wikimedia.org/wiki/Wikimania" class="uri">https://wikimania.wikimedia.org/wiki/Wikimania</a>
+</td>
+<td style="text-align: center;">
+<a href="https://wikimania.wikimedia.org/wiki/Wikimania" class="uri">https://wikimania.wikimedia.org/wiki/Wikimania</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+61
+</td>
+<td style="text-align: center;">
+Wikinews
+</td>
+<td style="text-align: center;">
+<a href="https://en.wikinews.org/wiki/Main_Page" class="uri">https://en.wikinews.org/wiki/Main_Page</a>
+</td>
+<td style="text-align: center;">
+<a href="https://en.wikinews.org/wiki/Main_Page" class="uri">https://en.wikinews.org/wiki/Main_Page</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+62
+</td>
+<td style="text-align: center;">
+Wikipedia
+</td>
+<td style="text-align: center;">
+<a href="https://en.wikipedia.org/wiki/Main_Page" class="uri">https://en.wikipedia.org/wiki/Main_Page</a>
+</td>
+<td style="text-align: center;">
+<a href="https://en.wikipedia.org/wiki/Main_Page" class="uri">https://en.wikipedia.org/wiki/Main_Page</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+63
+</td>
+<td style="text-align: center;">
+Wikiquote
+</td>
+<td style="text-align: center;">
+<a href="https://en.wikiquote.org/wiki/Main_Page" class="uri">https://en.wikiquote.org/wiki/Main_Page</a>
+</td>
+<td style="text-align: center;">
+<a href="https://en.wikiquote.org/wiki/Main_Page" class="uri">https://en.wikiquote.org/wiki/Main_Page</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+64
+</td>
+<td style="text-align: center;">
+Wikisource
+</td>
+<td style="text-align: center;">
+<a href="https://en.wikisource.org/wiki/Main_Page" class="uri">https://en.wikisource.org/wiki/Main_Page</a>
+</td>
+<td style="text-align: center;">
+<a href="https://en.wikisource.org/wiki/Main_Page" class="uri">https://en.wikisource.org/wiki/Main_Page</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+65
+</td>
+<td style="text-align: center;">
+Wikiversity
+</td>
+<td style="text-align: center;">
+<a href="https://en.wikiversity.org/wiki/Wikiversity:Main_Page" class="uri">https://en.wikiversity.org/wiki/Wikiversity:Main_Page</a>
+</td>
+<td style="text-align: center;">
+<a href="https://en.wikiversity.org/wiki/Wikiversity:Main_Page" class="uri">https://en.wikiversity.org/wiki/Wikiversity:Main_Page</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+66
+</td>
+<td style="text-align: center;">
+Wikivoyage
+</td>
+<td style="text-align: center;">
+<a href="https://en.wikivoyage.org/wiki/Main_Page" class="uri">https://en.wikivoyage.org/wiki/Main_Page</a>
+</td>
+<td style="text-align: center;">
+<a href="https://en.wikivoyage.org/wiki/Main_Page" class="uri">https://en.wikivoyage.org/wiki/Main_Page</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+67
+</td>
+<td style="text-align: center;">
+Wiktionary
+</td>
+<td style="text-align: center;">
+<a href="https://en.wiktionary.org/wiki/Wiktionary:Main_Page" class="uri">https://en.wiktionary.org/wiki/Wiktionary:Main_Page</a>
+</td>
+<td style="text-align: center;">
+<a href="https://en.wiktionary.org/wiki/Wiktionary:Main_Page" class="uri">https://en.wiktionary.org/wiki/Wiktionary:Main_Page</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+68
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+/wiki/<a href="File:Wikimedia_Hackathon_2024_-_Group_photo,_360_cam.jpg" class="uri">File:Wikimedia_Hackathon_2024_-_Group_photo,_360_cam.jpg</a>
+</td>
+<td style="text-align: center;">
+/wiki/<a href="File:Wikimedia_Hackathon_2024_-_Group_photo,_360_cam.jpg" class="uri">File:Wikimedia_Hackathon_2024_-_Group_photo,_360_cam.jpg</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+69
+</td>
+<td style="text-align: center;">
+Wikimedia Hackathon 2024
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Wikimedia_Hackathon_2024
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Wikimedia_Hackathon_2024
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+70
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+/wiki/Wikimedia_Hackathon_2024
+</td>
+<td style="text-align: center;">
+/wiki/Wikimedia_Hackathon_2024
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+71
+</td>
+<td style="text-align: center;">
+tens of thousands of websites
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Sites_using_MediaWiki
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Sites_using_MediaWiki
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+72
+</td>
+<td style="text-align: center;">
+thousands of companies and organisations
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/MediaWiki_testimonials
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/MediaWiki_testimonials
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+73
+</td>
+<td style="text-align: center;">
+multilingual
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Localisation
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Localisation
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+74
+</td>
+<td style="text-align: center;">
+free and open
+</td>
+<td style="text-align: center;">
+<a href="https://en.wikipedia.org/wiki/FLOSS" class="uri">https://en.wikipedia.org/wiki/FLOSS</a>
+</td>
+<td style="text-align: center;">
+<a href="https://en.wikipedia.org/wiki/FLOSS" class="uri">https://en.wikipedia.org/wiki/FLOSS</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+75
+</td>
+<td style="text-align: center;">
+Find out more
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Manual:What_is_MediaWiki%3F
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Manual:What_is_MediaWiki%3F
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+76
+</td>
+<td style="text-align: center;">
+if MediaWiki is right for you
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Manual:Deciding_whether_to_use_a_wiki_as_your_website_type
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Manual:Deciding_whether_to_use_a_wiki_as_your_website_type
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+77
+</td>
+<td style="text-align: center;">
+Download
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Download
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Download
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+78
+</td>
+<td style="text-align: center;">
+install
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Manual:Installing_MediaWiki
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Manual:Installing_MediaWiki
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+79
+</td>
+<td style="text-align: center;">
+configure
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Manual:System_administration
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Manual:System_administration
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+80
+</td>
+<td style="text-align: center;">
+extensions
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Manual:Extensions
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Manual:Extensions
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+81
+</td>
+<td style="text-align: center;">
+errors and symptoms
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Manual:Common_errors_and_symptoms
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Manual:Common_errors_and_symptoms
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+82
+</td>
+<td style="text-align: center;">
+FAQ
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Manual:FAQ
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Manual:FAQ
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+83
+</td>
+<td style="text-align: center;">
+hosting services
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Hosting_services
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Hosting_services
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+84
+</td>
+<td style="text-align: center;">
+Get professional development and consulting
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Professional_development_and_consulting
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Professional_development_and_consulting
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+85
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+/wiki/Professional_development_and_consulting
+</td>
+<td style="text-align: center;">
+/wiki/Professional_development_and_consulting
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+86
+</td>
+<td style="text-align: center;">
+MediaWiki Stakeholders
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/MediaWiki_Stakeholders%27_Group
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/MediaWiki_Stakeholders%27_Group
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+87
+</td>
+<td style="text-align: center;">
+Learn how to navigate
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Help:Navigation
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Help:Navigation
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+88
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+/wiki/Help:Navigation
+</td>
+<td style="text-align: center;">
+/wiki/Help:Navigation
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+89
+</td>
+<td style="text-align: center;">
+Learn how to edit a page
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Help:Editing_pages
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Help:Editing_pages
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+90
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+/wiki/Help:Editing_pages
+</td>
+<td style="text-align: center;">
+/wiki/Help:Editing_pages
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+91
+</td>
+<td style="text-align: center;">
+Learn more about reading, editing, and personal customisation
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Help:Contents
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Help:Contents
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+92
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+/wiki/Help:Contents
+</td>
+<td style="text-align: center;">
+/wiki/Help:Contents
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+93
+</td>
+<td style="text-align: center;">
+developer documentation
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Developer_hub
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Developer_hub
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+94
+</td>
+<td style="text-align: center;">
+Wikimedia Developer Portal
+</td>
+<td style="text-align: center;">
+<a href="https://developer.wikimedia.org" class="uri">https://developer.wikimedia.org</a>
+</td>
+<td style="text-align: center;">
+<a href="https://developer.wikimedia.org" class="uri">https://developer.wikimedia.org</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+95
+</td>
+<td style="text-align: center;">
+support desk
+</td>
+<td style="text-align: center;">
+/wiki/Project:Support_desk
+</td>
+<td style="text-align: center;">
+/wiki/Project:Support_desk
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+96
+</td>
+<td style="text-align: center;">
+Get involved
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/How_to_contribute
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/How_to_contribute
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+97
+</td>
+<td style="text-align: center;">
+Report wrong software behaviour or a feature proposal
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/How_to_report_a_bug
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/How_to_report_a_bug
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+98
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+/wiki/How_to_report_a_bug
+</td>
+<td style="text-align: center;">
+/wiki/How_to_report_a_bug
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+99
+</td>
+<td style="text-align: center;">
+Wikimedia Hackathon 2024
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Wikimedia_Hackathon_2024
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Wikimedia_Hackathon_2024
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+100
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+/wiki/Wikimedia_Hackathon_2024
+</td>
+<td style="text-align: center;">
+/wiki/Wikimedia_Hackathon_2024
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+101
+</td>
+<td style="text-align: center;">
+MediaWiki Users and Developers Conference Spring 2024
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/MediaWiki_Users_and_Developers_Conference_Spring_2024
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/MediaWiki_Users_and_Developers_Conference_Spring_2024
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+102
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+/wiki/MediaWiki_Users_and_Developers_Conference_Spring_2024
+</td>
+<td style="text-align: center;">
+/wiki/MediaWiki_Users_and_Developers_Conference_Spring_2024
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+103
+</td>
+<td style="text-align: center;">
+View livestream
+</td>
+<td style="text-align: center;">
+/wiki/MediaWiki_Users_and_Developers_Conference_2024#Remote_attendance
+</td>
+<td style="text-align: center;">
+/wiki/MediaWiki_Users_and_Developers_Conference_2024#Remote_attendance
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+104
+</td>
+<td style="text-align: center;">
+MediaWiki 1.39.7, 1.40.3 and 1.41.1 security releases
+</td>
+<td style="text-align: center;">
+<a href="https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/message/V3WXEPXV2DU6WTVEKK4XHW4QXD5OFKD7/" class="uri">https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/message/V3WXEPXV2DU6WTVEKK4XHW4QXD5OFKD7/</a>
+</td>
+<td style="text-align: center;">
+<a href="https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/message/V3WXEPXV2DU6WTVEKK4XHW4QXD5OFKD7/" class="uri">https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/message/V3WXEPXV2DU6WTVEKK4XHW4QXD5OFKD7/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+105
+</td>
+<td style="text-align: center;">
+MediaWiki 1.41.0
+</td>
+<td style="text-align: center;">
+<a href="https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/thread/OMDFHJ2SKKJH775RW4UTC754OY4TP7UU/" class="uri">https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/thread/OMDFHJ2SKKJH775RW4UTC754OY4TP7UU/</a>
+</td>
+<td style="text-align: center;">
+<a href="https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/thread/OMDFHJ2SKKJH775RW4UTC754OY4TP7UU/" class="uri">https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/thread/OMDFHJ2SKKJH775RW4UTC754OY4TP7UU/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+106
+</td>
+<td style="text-align: center;">
+MediaWiki 1.35.x versions
+</td>
+<td style="text-align: center;">
+<a href="https://lists.wikimedia.org/hyperkitty/list/mediawiki-l@lists.wikimedia.org/thread/72B3GNSDFUJEM23W54735OW34IHCZL6F/" class="uri">https://lists.wikimedia.org/hyperkitty/list/mediawiki-l@lists.wikimedia.org/thread/72B3GNSDFUJEM23W54735OW34IHCZL6F/</a>
+</td>
+<td style="text-align: center;">
+<a href="https://lists.wikimedia.org/hyperkitty/list/mediawiki-l@lists.wikimedia.org/thread/72B3GNSDFUJEM23W54735OW34IHCZL6F/" class="uri">https://lists.wikimedia.org/hyperkitty/list/mediawiki-l@lists.wikimedia.org/thread/72B3GNSDFUJEM23W54735OW34IHCZL6F/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+107
+</td>
+<td style="text-align: center;">
+MediaWiki 1.35.14, 1.39.6 and 1.40.2 security releases
+</td>
+<td style="text-align: center;">
+<a href="https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/message/TDBUBCCOQJUT4SCHJNPHKQNPBUUETY52/" class="uri">https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/message/TDBUBCCOQJUT4SCHJNPHKQNPBUUETY52/</a>
+</td>
+<td style="text-align: center;">
+<a href="https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/message/TDBUBCCOQJUT4SCHJNPHKQNPBUUETY52/" class="uri">https://lists.wikimedia.org/hyperkitty/list/mediawiki-announce@lists.wikimedia.org/message/TDBUBCCOQJUT4SCHJNPHKQNPBUUETY52/</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+108
+</td>
+<td style="text-align: center;">
+More news
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Special:MyLanguage/News" class="uri">https://www.mediawiki.org/wiki/Special:MyLanguage/News</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Special:MyLanguage/News" class="uri">https://www.mediawiki.org/wiki/Special:MyLanguage/News</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+109
+</td>
+<td style="text-align: center;">
+Other languages:
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Project:Language_policy
+</td>
+<td style="text-align: center;">
+/wiki/Special:MyLanguage/Project:Language_policy
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+110
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+/wiki/Project:Language_policy
+</td>
+<td style="text-align: center;">
+/wiki/Project:Language_policy
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+111
+</td>
+<td style="text-align: center;">
+English
+</td>
+<td style="text-align: center;">
+/wiki/Template:Main_page
+</td>
+<td style="text-align: center;">
+/wiki/Template:Main_page
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+112
+</td>
+<td style="text-align: center;">
+Afrikaans
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/af" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/af</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/af" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/af</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+113
+</td>
+<td style="text-align: center;">
+العربية
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/ar" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/ar</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/ar" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/ar</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+114
+</td>
+<td style="text-align: center;">
+asturianu
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/ast" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/ast</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/ast" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/ast</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+115
+</td>
+<td style="text-align: center;">
+беларуская
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/be" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/be</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/be" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/be</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+116
+</td>
+<td style="text-align: center;">
+беларуская (тарашкевіца)
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/be-tarask" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/be-tarask</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/be-tarask" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/be-tarask</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+117
+</td>
+<td style="text-align: center;">
+български
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/bg" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/bg</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/bg" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/bg</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+118
+</td>
+<td style="text-align: center;">
+বাংলা
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/bn" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/bn</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/bn" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/bn</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+119
+</td>
+<td style="text-align: center;">
+bosanski
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/bs" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/bs</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/bs" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/bs</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+120
+</td>
+<td style="text-align: center;">
+català
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/ca" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/ca</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/ca" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/ca</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+121
+</td>
+<td style="text-align: center;">
+کوردی
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/ckb" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/ckb</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/ckb" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/ckb</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+122
+</td>
+<td style="text-align: center;">
+čeština
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/cs" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/cs</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/cs" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/cs</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+123
+</td>
+<td style="text-align: center;">
+dansk
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/da" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/da</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/da" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/da</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+124
+</td>
+<td style="text-align: center;">
+Deutsch
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/de" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/de</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/de" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/de</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+125
+</td>
+<td style="text-align: center;">
+español
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/es" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/es</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/es" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/es</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+126
+</td>
+<td style="text-align: center;">
+فارسی
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/fa" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/fa</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/fa" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/fa</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+127
+</td>
+<td style="text-align: center;">
+suomi
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/fi" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/fi</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/fi" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/fi</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+128
+</td>
+<td style="text-align: center;">
+français
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/fr" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/fr</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/fr" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/fr</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+129
+</td>
+<td style="text-align: center;">
+galego
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/gl" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/gl</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/gl" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/gl</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+130
+</td>
+<td style="text-align: center;">
+ગુજરાતી
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/gu" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/gu</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/gu" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/gu</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+131
+</td>
+<td style="text-align: center;">
+עברית
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/he" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/he</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/he" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/he</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+132
+</td>
+<td style="text-align: center;">
+हिन्दी
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/hi" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/hi</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/hi" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/hi</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+133
+</td>
+<td style="text-align: center;">
+hrvatski
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/hr" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/hr</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/hr" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/hr</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+134
+</td>
+<td style="text-align: center;">
+magyar
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/hu" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/hu</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/hu" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/hu</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+135
+</td>
+<td style="text-align: center;">
+հայերեն
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/hy" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/hy</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/hy" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/hy</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+136
+</td>
+<td style="text-align: center;">
+Bahasa Indonesia
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/id" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/id</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/id" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/id</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+137
+</td>
+<td style="text-align: center;">
+italiano
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/it" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/it</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/it" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/it</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+138
+</td>
+<td style="text-align: center;">
+日本語
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/ja" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/ja</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/ja" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/ja</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+139
+</td>
+<td style="text-align: center;">
+Jawa
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/jv" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/jv</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/jv" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/jv</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+140
+</td>
+<td style="text-align: center;">
+қазақша
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/kk" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/kk</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/kk" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/kk</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+141
+</td>
+<td style="text-align: center;">
+한국어
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/ko" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/ko</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/ko" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/ko</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+142
+</td>
+<td style="text-align: center;">
+Bahasa Melayu
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/ms" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/ms</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/ms" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/ms</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+143
+</td>
+<td style="text-align: center;">
+Mirandés
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/mwl" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/mwl</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/mwl" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/mwl</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+144
+</td>
+<td style="text-align: center;">
+Nederlands
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/nl" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/nl</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/nl" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/nl</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+145
+</td>
+<td style="text-align: center;">
+polski
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/pl" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/pl</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/pl" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/pl</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+146
+</td>
+<td style="text-align: center;">
+português
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/pt" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/pt</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/pt" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/pt</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+147
+</td>
+<td style="text-align: center;">
+português do Brasil
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/pt-br" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/pt-br</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/pt-br" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/pt-br</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+148
+</td>
+<td style="text-align: center;">
+română
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/ro" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/ro</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/ro" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/ro</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+149
+</td>
+<td style="text-align: center;">
+русский
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/ru" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/ru</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/ru" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/ru</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+150
+</td>
+<td style="text-align: center;">
+sardu
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/sc" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/sc</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/sc" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/sc</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+151
+</td>
+<td style="text-align: center;">
+සිංහල
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/si" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/si</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/si" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/si</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+152
+</td>
+<td style="text-align: center;">
+slovenčina
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/sk" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/sk</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/sk" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/sk</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+153
+</td>
+<td style="text-align: center;">
+slovenščina
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/sl" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/sl</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/sl" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/sl</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+154
+</td>
+<td style="text-align: center;">
+Soomaaliga
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/so" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/so</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/so" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/so</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+155
+</td>
+<td style="text-align: center;">
+shqip
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/sq" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/sq</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/sq" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/sq</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+156
+</td>
+<td style="text-align: center;">
+српски / srpski
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/sr" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/sr</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/sr" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/sr</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+157
+</td>
+<td style="text-align: center;">
+svenska
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/sv" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/sv</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/sv" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/sv</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+158
+</td>
+<td style="text-align: center;">
+ไทย
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/th" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/th</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/th" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/th</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+159
+</td>
+<td style="text-align: center;">
+Türkçe
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/tr" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/tr</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/tr" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/tr</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+160
+</td>
+<td style="text-align: center;">
+українська
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/uk" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/uk</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/uk" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/uk</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+161
+</td>
+<td style="text-align: center;">
+Tiếng Việt
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/vi" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/vi</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/vi" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/vi</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+162
+</td>
+<td style="text-align: center;">
+粵語
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/yue" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/yue</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/yue" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/yue</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+163
+</td>
+<td style="text-align: center;">
+中文
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/zh" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/zh</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Template:Main_page/zh" class="uri">https://www.mediawiki.org/wiki/Template:Main_page/zh</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+164
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/w/index.php?title=MediaWiki&amp;oldid=6287429" class="uri">https://www.mediawiki.org/w/index.php?title=MediaWiki&amp;oldid=6287429</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/w/index.php?title=MediaWiki&amp;oldid=6287429" class="uri">https://www.mediawiki.org/w/index.php?title=MediaWiki&amp;oldid=6287429</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/w/index.php?title=MediaWiki&amp;oldid=6287429" class="uri">https://www.mediawiki.org/w/index.php?title=MediaWiki&amp;oldid=6287429</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+165
+</td>
+<td style="text-align: center;">
+Languages pages
+</td>
+<td style="text-align: center;">
+/wiki/Category:Languages_pages
+</td>
+<td style="text-align: center;">
+/wiki/Category:Languages_pages
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+166
+</td>
+<td style="text-align: center;">
+Creative Commons Attribution-ShareAlike License
+</td>
+<td style="text-align: center;">
+<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" class="uri">https://creativecommons.org/licenses/by-sa/4.0/deed.en</a>
+</td>
+<td style="text-align: center;">
+<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" class="uri">https://creativecommons.org/licenses/by-sa/4.0/deed.en</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+167
+</td>
+<td style="text-align: center;">
+Terms of Use
+</td>
+<td style="text-align: center;">
+<a href="https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Terms_of_Use" class="uri">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Terms_of_Use</a>
+</td>
+<td style="text-align: center;">
+<a href="https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Terms_of_Use" class="uri">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Terms_of_Use</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+168
+</td>
+<td style="text-align: center;">
+Privacy policy
+</td>
+<td style="text-align: center;">
+<a href="https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy" class="uri">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy</a>
+</td>
+<td style="text-align: center;">
+<a href="https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy" class="uri">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+169
+</td>
+<td style="text-align: center;">
+About mediawiki.org
+</td>
+<td style="text-align: center;">
+/wiki/Project:About
+</td>
+<td style="text-align: center;">
+/wiki/Project:About
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+170
+</td>
+<td style="text-align: center;">
+Disclaimers
+</td>
+<td style="text-align: center;">
+/wiki/Project:General_disclaimer
+</td>
+<td style="text-align: center;">
+/wiki/Project:General_disclaimer
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+171
+</td>
+<td style="text-align: center;">
+Code of Conduct
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Code_of_Conduct" class="uri">https://www.mediawiki.org/wiki/Special:MyLanguage/Code_of_Conduct</a>
+</td>
+<td style="text-align: center;">
+<a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Code_of_Conduct" class="uri">https://www.mediawiki.org/wiki/Special:MyLanguage/Code_of_Conduct</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+172
+</td>
+<td style="text-align: center;">
+Developers
+</td>
+<td style="text-align: center;">
+<a href="https://developer.wikimedia.org" class="uri">https://developer.wikimedia.org</a>
+</td>
+<td style="text-align: center;">
+<a href="https://developer.wikimedia.org" class="uri">https://developer.wikimedia.org</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+173
+</td>
+<td style="text-align: center;">
+Statistics
+</td>
+<td style="text-align: center;">
+<a href="https://stats.wikimedia.org/#/www.mediawiki.org" class="uri">https://stats.wikimedia.org/#/www.mediawiki.org</a>
+</td>
+<td style="text-align: center;">
+<a href="https://stats.wikimedia.org/#/www.mediawiki.org" class="uri">https://stats.wikimedia.org/#/www.mediawiki.org</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+174
+</td>
+<td style="text-align: center;">
+Cookie statement
+</td>
+<td style="text-align: center;">
+<a href="https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Cookie_statement" class="uri">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Cookie_statement</a>
+</td>
+<td style="text-align: center;">
+<a href="https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Cookie_statement" class="uri">https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Cookie_statement</a>
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+175
+</td>
+<td style="text-align: center;">
+Mobile view
+</td>
+<td style="text-align: center;">
+//m.mediawiki.org/w/index.php?title=MediaWiki&amp;mobileaction=toggle_view_mobile
+</td>
+<td style="text-align: center;">
+//m.mediawiki.org/w/index.php?title=MediaWiki&amp;mobileaction=toggle_view_mobile
+</td>
+</tr>
+<tr>
+<td style="text-align: left;">
+176
+</td>
+<td style="text-align: center;">
+</td>
+<td style="text-align: center;">
+<a href="https://wikimediafoundation.org/" class="uri">https://wikimediafoundation.org/</a>
+</td>
+<td style="text-align: center;">
+<a href="https://wikimediafoundation.org/" class="uri">https://wikimediafoundation.org/</a>
+</td>
+</tr>
+<tr>
+<td style="border-bottom: 2px solid grey; text-align: left;">
+177
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+<a href="https://www.mediawiki.org/" class="uri">https://www.mediawiki.org/</a>
+</td>
+<td style="border-bottom: 2px solid grey; text-align: center;">
+<a href="https://www.mediawiki.org/" class="uri">https://www.mediawiki.org/</a>
+</td>
+</tr>
+</tbody>
+</table>
 <p>RSPT: La infromacion obtenida es:</p>
 >>>>>>> 5420873 (Fin de todo pregunta 01)
 <p>4. Generar una tabla con cada enlace encontrado, indicando el texto
