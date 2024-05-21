@@ -14,6 +14,8 @@ library(XML)
 library(httr)
 library(dplyr)
 library(stringr)
+library(data.table)
+library(gridExtra)
 if (!require("htmlTable")) install.packages("htmlTable")
 ```
 
@@ -50,7 +52,7 @@ tablaPrin <- data.frame("enlaces" = links_text,
 tablaPrin$Enlace2 <- str_replace_na(tablaPrin$enlaces)
 
 tablaPrin$Enlace2[tablaPrin$Enlace2 == "NA"] <- NA 
-htmlTable(tablaPrin)
+#htmlTable(tablaPrin)
 ```
 
 RSPT: La infromacion obtenida es: `r 
@@ -80,3 +82,67 @@ tablaPrin$status_code <- sapply(tablaPrin$url_absoluta, extract_status_code)
 ```
 
 ## Pregunta 02:
+
+1\. Un histograma con la frecuencia de aparición de los enlaces, pero separado por URLs absolutas (con “http...”) y URLs relativas.
+
+```{r , echo=FALSE}
+#absolute_urls <- tablaPrin[grepl("^http[s]://", tablaPrin$url_absoluta), ]
+absolute_urls <- tablaPrin[grepl("FALSE", tablaPrin$es_relativo), ]
+#relative_urls <- tablaPrin[!grepl("^http[s]://", tablaPrin$url_absoluta), ]
+relative_urls <- tablaPrin[grepl("TRUE", tablaPrin$es_relativo), ]
+
+absolute_freq <- table(absolute_urls$URL)
+relative_freq <- table(relative_urls$URL)
+
+hist(absolute_freq, main = "Histograma de URLs absolutas", xlab = "URL absoluta", ylab = "Frecuencia")
+hist(relative_freq, main = "Histograma de URLs relativas", xlab = "URL relativa", ylab = "Frecuencia")
+```
+
+2\. Un gráfico de barras indicando la suma de enlaces que apuntan a otros dominios o servicios (distinto a https://www.mediawiki.org en el caso de ejemplo) vs. la suma de los otros enlaces.
+
+```{r , echo=FALSE}
+base_url <- "https://www.mediawiki.org"
+#filtered_data <- tablaPrin[!grepl("^" + base_url, tablaPrin$url_absoluta), ]
+filtered_data <- tablaPrin[!(tablaPrin$url_absoluta %like% base_url), ]
+domain_names <- gsub("[^/]+/$", "", filtered_data$URL)
+link_counts <- table(domain_names)
+base_links <- link_counts[link_counts == base_url]
+other_links <- link_counts[-which(link_counts == base_url)]
+
+igualURL <- tablaPrin[grepl("^https://www.mediawiki.org", tablaPrin$es_relativo), ]
+noigualURL <- tablaPrin[!grepl("^https://www.mediawiki.org", tablaPrin$es_relativo), ]
+noigualURL
+base_link_sum <- sum(base_links)
+other_link_sum <- sum(other_links)
+bar_labels <- c("Enlaces a", "Enlaces a otros dominios")
+
+barplot(c(base_link_sum, other_link_sum), names.arg = bar_labels,
+        main = "Distribución de enlaces por destino", xlab = "Tipo de enlace", ylab = "Número de enlaces")
+```
+
+3\. Un gráfico de tarta (pie chart) indicando los porcentajes de Status de nuestro análisis.
+
+```{r , echo=FALSE}
+# Assuming analysis_data is the data frame with status codes
+status_counts <- table(tablaPrin$status_code)  # Count occurrences of each status
+status_percentages <- round(prop.table(status_counts) * 100, 1)  # Calculate percentages
+
+# Create a new data frame with labels and percentages
+status_data <- data.frame(status = names(status_counts), percentage = status_percentages)
+
+# Add labels to percentages
+status_data$label <- paste0(status_data$percentage, "%")
+
+status_data$percentage <- abs(round(prop.table(status_counts) * 100, 1))
+
+# Create the pie chart
+pie(status_data$percentage, labels = status_data$label, main = "Distribución de Status de Análisis", clockwise = FALSE, col = c("#0080FF", "#FFC000"))  # Customize colors as needed
+
+# Combine pie chart with previous charts
+combined_chart <- arrangeGrob(prev_charts, status_chart, ncol = 2)
+
+# Save or display the combined chart
+ggsave("combined_analysis_charts.png", combined_chart, width = 10, height = 6)  # Adjust width and height as needed
+
+
+```
