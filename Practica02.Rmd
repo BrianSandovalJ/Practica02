@@ -116,7 +116,7 @@ base_link_sum <- sum(base_links)
 other_link_sum <- sum(other_links)
 bar_labels <- c("Enlaces a", "Enlaces a otros dominios")
 
-barplot(c(base_link_sum, other_link_sum), names.arg = bar_labels,
+pruebagrafico <- barplot(c(base_link_sum, other_link_sum), names.arg = bar_labels,
         main = "Distribución de enlaces por destino", xlab = "Tipo de enlace", ylab = "Número de enlaces")
 ```
 
@@ -139,10 +139,10 @@ status_data$percentage <- abs(round(prop.table(status_counts) * 100, 1))
 pie(status_data$percentage, labels = status_data$label, main = "Distribución de Status de Análisis", clockwise = FALSE, col = c("#0080FF", "#FFC000"))  # Customize colors as needed
 
 # Combine pie chart with previous charts
-combined_chart <- arrangeGrob(prev_charts, status_chart, ncol = 2)
+combined_chart <- arrangeGrob(pruebagrafico, pruebagrafico, ncol = 2)
 
 # Save or display the combined chart
-ggsave("combined_analysis_charts.png", combined_chart, width = 10, height = 6)  # Adjust width and height as needed
+#ggsave("combined_analysis_charts.png", combined_chart, width = 10, height = 6)  # Adjust width and height as needed
 
 
 ```
