@@ -16,7 +16,8 @@ library(dplyr)
 library(stringr)
 library(data.table)
 library(gridExtra)
-if (!require("htmlTable")) install.packages("htmlTable")
+library(htmlTable)
+library(tidyverse)
 ```
 
 
@@ -33,7 +34,7 @@ parsedHtml <- htmlParse(contenido, asText = TRUE)
 2\. Analizar el contenido de la web, buscando el título de la página (que en HTML se etiqueta como “title”).
 
 
-```{r extrae_titulo}
+```{r extrae_titulo, echo=FALSE}
 titulo <- xpathSApply(parsedHtml, "//title", xmlValue)
 ```
 
@@ -51,7 +52,7 @@ tablaPrin <- data.frame("enlaces" = links_text,
 
 tablaPrin$Enlace2 <- str_replace_na(tablaPrin$enlaces)
 
-tablaPrin$Enlace2[tablaPrin$Enlace2 == "NA"] <- NA 
+tablaPrin$Enlace2[tablaPrin$Enlace2 == "NA"] <- NA
 #htmlTable(tablaPrin)
 ```
 
@@ -60,7 +61,7 @@ View(tablaPrin)`
 
 4\. Generar una tabla con cada enlace encontrado, indicando el texto que acompaña el enlace, y el número de veces que aparece un enlace con ese mismo objetivo.
 
-```{r , echo=FALSE}
+```{r NumEncontrado, echo=FALSE}
 # convertir relativas en absolutas
 
 tablaPrin$es_relativo <- grepl("^/|#$|#bodyContent", tablaPrin$URL, perl = T)
@@ -71,7 +72,7 @@ tablaPrin <- tablaPrin %>% add_count(url_absoluta)
 
 5\. Para cada enlace, seguirlo e indicar si está activo (podemos usar el código de status HTTP al hacer una petición a esa URL).
 
-```{r , echo=FALSE}
+```{r BusActivoUrl, echo=FALSE}
 
 extract_status_code <- function(url) {
   resp <- HEAD(url)
@@ -86,10 +87,11 @@ tablaPrin$status_code <- sapply(tablaPrin$url_absoluta, extract_status_code)
 1\. Un histograma con la frecuencia de aparición de los enlaces, pero separado por URLs absolutas (con “http...”) y URLs relativas.
 
 ```{r , echo=FALSE}
-#absolute_urls <- tablaPrin[grepl("^http[s]://", tablaPrin$url_absoluta), ]
-absolute_urls <- tablaPrin[grepl("FALSE", tablaPrin$es_relativo), ]
-#relative_urls <- tablaPrin[!grepl("^http[s]://", tablaPrin$url_absoluta), ]
-relative_urls <- tablaPrin[grepl("TRUE", tablaPrin$es_relativo), ]
+absolute_urls <- tablaPrin[grepl("^http[s]://", tablaPrin$URL), ]
+#absolute_urls <- tablaPrin[grepl("FALSE", tablaPrin$es_relativo), ]
+
+relative_urls <- tablaPrin[!grepl("^http[s]://", tablaPrin$URL), ]
+#relative_urls <- tablaPrin[grepl("TRUE", tablaPrin$es_relativo), ]
 
 absolute_freq <- table(absolute_urls$URL)
 relative_freq <- table(relative_urls$URL)
@@ -116,12 +118,14 @@ base_link_sum <- sum(base_links)
 other_link_sum <- sum(other_links)
 bar_labels <- c("Enlaces a", "Enlaces a otros dominios")
 
-pruebagrafico <- barplot(c(base_link_sum, other_link_sum), names.arg = bar_labels,
+barplot(c(base_link_sum, other_link_sum), names.arg = bar_labels,
         main = "Distribución de enlaces por destino", xlab = "Tipo de enlace", ylab = "Número de enlaces")
 ```
 
 3\. Un gráfico de tarta (pie chart) indicando los porcentajes de Status de nuestro análisis.
 
+Azul = 200
+Naranja = 404
 ```{r , echo=FALSE}
 # Assuming analysis_data is the data frame with status codes
 status_counts <- table(tablaPrin$status_code)  # Count occurrences of each status
@@ -139,10 +143,8 @@ status_data$percentage <- abs(round(prop.table(status_counts) * 100, 1))
 pie(status_data$percentage, labels = status_data$label, main = "Distribución de Status de Análisis", clockwise = FALSE, col = c("#0080FF", "#FFC000"))  # Customize colors as needed
 
 # Combine pie chart with previous charts
-combined_chart <- arrangeGrob(pruebagrafico, pruebagrafico, ncol = 2)
+#combined_chart <- arrangeGrob(pruebagrafico, pruebagrafico, ncol = 2)
 
 # Save or display the combined chart
 #ggsave("combined_analysis_charts.png", combined_chart, width = 10, height = 6)  # Adjust width and height as needed
-
-
 ```
