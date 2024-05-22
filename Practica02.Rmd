@@ -111,7 +111,7 @@ other_links <- link_counts[-which(link_counts == base_url)]
 
 igualURL <- tablaPrin[grepl("^https://www.mediawiki.org", tablaPrin$es_relativo), ]
 noigualURL <- tablaPrin[!grepl("^https://www.mediawiki.org", tablaPrin$es_relativo), ]
-noigualURL
+
 base_link_sum <- sum(base_links)
 other_link_sum <- sum(other_links)
 bar_labels <- c("Enlaces a", "Enlaces a otros dominios")
